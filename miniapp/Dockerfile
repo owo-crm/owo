@@ -14,4 +14,4 @@ RUN npm run build && npm install -g serve
 
 ENV PORT=3000
 
-CMD ["sh", "-c", "serve -s dist -l ${PORT:-3000}"]
+CMD ["sh", "-c", "serve -s dist -l tcp://0.0.0.0:${PORT:-3000}"]
