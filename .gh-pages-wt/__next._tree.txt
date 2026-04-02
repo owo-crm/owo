@@ -1,3 +1,0 @@
-:HL["/owo/_next/static/chunks/0tztjpb3~b.sy.css","style"]
-:HL["/owo-logo.png","image"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}},"staleTime":300,"buildId":"VbRmQbvlj3cZ84O79imC_"}
