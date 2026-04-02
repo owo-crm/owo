@@ -39,3 +39,6 @@ next-env.d.ts
 
 # local capture storage
 /data/*.json
+
+# local dev logs
+.next-dev*.log
