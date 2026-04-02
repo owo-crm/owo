@@ -2,7 +2,7 @@ import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { randomUUID } from "node:crypto";
 
-type WaitlistSubmission = {
+export type WaitlistSubmission = {
   id: string;
   name: string;
   email: string;
@@ -15,7 +15,7 @@ type WaitlistSubmission = {
   createdAt: string;
 };
 
-type SurveyResponse = {
+export type SurveyResponse = {
   id: string;
   submissionId: string;
   businessType: string;
@@ -64,6 +64,13 @@ async function readCollection<T>(filePath: string): Promise<T[]> {
   }
 }
 
+function countBy<T extends string>(values: T[]) {
+  return values.reduce<Record<string, number>>((acc, value) => {
+    acc[value] = (acc[value] ?? 0) + 1;
+    return acc;
+  }, {});
+}
+
 async function writeCollection<T>(filePath: string, records: T[]) {
   await ensureDataDir();
   await writeFile(filePath, JSON.stringify(records, null, 2), "utf8");
@@ -107,4 +114,49 @@ export async function persistEarlyAccessSubmission(payload: EarlyAccessPayload) 
   ]);
 
   return { submissionId };
+}
+
+export async function getEarlyAccessRecords() {
+  const [waitlist, survey] = await Promise.all([
+    readCollection<WaitlistSubmission>(waitlistFile),
+    readCollection<SurveyResponse>(surveyFile),
+  ]);
+
+  const surveyBySubmission = new Map(survey.map((item) => [item.submissionId, item]));
+
+  return waitlist
+    .map((contact) => ({
+      contact,
+      survey: surveyBySubmission.get(contact.id) ?? null,
+    }))
+    .sort((a, b) => (a.contact.createdAt < b.contact.createdAt ? 1 : -1));
+}
+
+export async function getEarlyAccessStats() {
+  const records = await getEarlyAccessRecords();
+  const surveys = records
+    .map((record) => record.survey)
+    .filter((value): value is SurveyResponse => value !== null);
+
+  return {
+    totals: {
+      submissions: records.length,
+      withTelegram: records.filter((record) => Boolean(record.contact.telegram)).length,
+      preferredTelegram: records.filter(
+        (record) => record.contact.preferredContact === "telegram",
+      ).length,
+      preferredEmail: records.filter(
+        (record) => record.contact.preferredContact === "email",
+      ).length,
+    },
+    breakdowns: {
+      language: countBy(records.map((record) => record.contact.language)),
+      businessType: countBy(surveys.map((survey) => survey.businessType)),
+      teamSize: countBy(surveys.map((survey) => survey.teamSize)),
+      preferredWorkspace: countBy(surveys.map((survey) => survey.preferredWorkspace)),
+      willingnessToPay: countBy(surveys.map((survey) => survey.willingnessToPay)),
+      earlyAccessInterest: countBy(surveys.map((survey) => survey.earlyAccessInterest)),
+    },
+    recent: records.slice(0, 30),
+  };
 }

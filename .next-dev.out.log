@@ -1,0 +1,17 @@
+
+> owocrm@0.1.0 dev
+> next dev --hostname 0.0.0.0 --port 3000
+
+▲ Next.js 16.2.2 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://0.0.0.0:3000
+- Environments: .env.local
+✓ Ready in 437ms
+
+ GET /admin/survey?token=owo_stats_2026 200 in 364ms (next.js: 137ms, application-code: 227ms)
+ GET / 200 in 363ms (next.js: 247ms, application-code: 116ms)
+ GET /api/early-access/stats?token=owo_stats_2026 200 in 66ms (next.js: 51ms, application-code: 14ms)
+ POST /api/early-access 200 in 1002ms (next.js: 169ms, application-code: 834ms)
+ POST /api/early-access 200 in 621ms (next.js: 8ms, application-code: 613ms)
+ GET /admin/survey?token=owo_stats_2026 200 in 121ms (next.js: 9ms, application-code: 112ms)
+ GET /api/early-access/stats?token=owo_stats_2026 200 in 26ms (next.js: 5ms, application-code: 20ms)

@@ -1,21 +1,11 @@
 import type { Metadata } from "next";
-import { Manrope, Sora } from "next/font/google";
 import "./globals.css";
-
-const manrope = Manrope({
-  variable: "--font-manrope",
-  subsets: ["latin"],
-});
-
-const sora = Sora({
-  variable: "--font-sora",
-  subsets: ["latin"],
-});
+import { LANDING_CONFIG } from "@/config/landing";
 
 export const metadata: Metadata = {
-  title: "OWO CRM",
+  title: LANDING_CONFIG.productName,
   description:
-    "OWO CRM is an automation-first operations center for teams that want leads, tasks, communication, and visibility in one focused system.",
+    "OWO CRM turns Google Sheets and website leads into a clear pipeline with automated emails.",
 };
 
 export default function RootLayout({
@@ -24,11 +14,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${manrope.variable} ${sora.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="ru" className="h-full antialiased">
+      <body className="flex min-h-full flex-col">{children}</body>
     </html>
   );
 }

@@ -1,19 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-manrope);
-  --font-display: var(--font-sora);
-}
-
-@theme {
-  --font-display: var(--font-sora);
+  --page-bg: #0d0e15;
+  --section-alt-bg: #0f1018;
+  --text-primary: #e8e9f0;
+  --text-secondary: #8b8d9e;
 }
 
 * {
@@ -22,20 +14,19 @@
 
 html {
   scroll-behavior: smooth;
-  overflow-x: clip;
 }
 
 body {
-  background:
-    radial-gradient(58% 42% at 10% 6%, rgba(255, 91, 98, 0.16) 0%, transparent 60%),
-    radial-gradient(46% 34% at 88% 10%, rgba(95, 132, 255, 0.14) 0%, transparent 56%),
-    radial-gradient(38% 28% at 56% 84%, rgba(255, 91, 98, 0.08) 0%, transparent 64%),
-    linear-gradient(180deg, #0d0e15 0%, #090b12 42%, #08090f 100%);
-  background-attachment: fixed !important;
-  color: #f8f8ff;
-  font-family: var(--font-manrope), sans-serif;
+  margin: 0;
   min-height: 100vh;
-  overflow-x: clip;
+  color: var(--text-primary);
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background-color: var(--page-bg);
+  background-image:
+    radial-gradient(55% 38% at 18% 6%, rgba(107, 127, 240, 0.1) 0%, transparent 70%),
+    radial-gradient(44% 30% at 88% 16%, rgba(107, 127, 240, 0.08) 0%, transparent 72%),
+    linear-gradient(var(--page-bg), var(--page-bg));
+  background-attachment: fixed;
 }
 
 a {
@@ -43,89 +34,11 @@ a {
   text-decoration: none;
 }
 
-button,
-input,
-textarea,
-select {
-  font: inherit;
-}
-
 ::selection {
-  background: rgba(255, 91, 98, 0.4);
+  background: rgba(107, 127, 240, 0.3);
   color: #ffffff;
 }
 
-.landing-shell {
-  position: relative;
-  overflow: clip;
-  background:
-    radial-gradient(44% 30% at 14% 12%, rgba(255, 91, 98, 0.08) 0%, transparent 72%),
-    radial-gradient(34% 24% at 86% 18%, rgba(95, 132, 255, 0.1) 0%, transparent 68%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.016), rgba(255, 255, 255, 0));
-}
-
-.text-balance {
-  text-wrap: balance;
-}
-
-.glass-line {
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(255, 255, 255, 0.035);
-  backdrop-filter: blur(18px);
-}
-
-.hero-screen {
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background:
-    linear-gradient(180deg, rgba(15, 14, 23, 0.96), rgba(10, 11, 18, 0.98)),
-    rgba(255, 255, 255, 0.03);
-  box-shadow:
-    0 30px 80px rgba(0, 0, 0, 0.5),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
-}
-
-.survey-shadow {
-  box-shadow:
-    0 24px 80px rgba(0, 0, 0, 0.4),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
-}
-
-.canvas {
-  position: relative;
-}
-
-svg.connections {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  overflow: visible;
-}
-
-path.connector {
-  fill: none;
-  stroke: #6b7ff0;
-  stroke-width: 2px;
-  stroke-linecap: round;
-}
-
-.hide-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-.hide-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-
-@media (max-width: 768px) {
-  body {
-    background:
-      radial-gradient(86% 50% at 8% 6%, rgba(255, 91, 98, 0.13) 0%, transparent 58%),
-      radial-gradient(66% 38% at 100% 12%, rgba(95, 132, 255, 0.1) 0%, transparent 54%),
-      linear-gradient(180deg, #0d0e15 0%, #090b12 42%, #08090f 100%);
-    background-attachment: fixed;
-  }
+.section-alt {
+  background: linear-gradient(180deg, rgba(15, 16, 24, 0.86) 0%, rgba(15, 16, 24, 0.72) 100%);
 }

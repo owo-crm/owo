@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { sendEarlyAccessEmails } from "@/lib/email";
 import { persistEarlyAccessSubmission } from "@/lib/storage";
 
 export const runtime = "nodejs";
@@ -87,7 +88,49 @@ export async function POST(request: Request) {
       },
     });
 
-    return NextResponse.json({ ok: true, submissionId: result.submissionId });
+    let email = {
+      attempted: false,
+      notificationSent: false,
+      confirmationSent: false,
+    };
+
+    try {
+      email = await sendEarlyAccessEmails(
+        {
+          language: body.language ?? "en",
+          source: body.source ?? "landing",
+          utm: body.utm ?? {},
+          contact: {
+            name: body.contact?.name?.trim() ?? "",
+            email: body.contact?.email?.trim() ?? "",
+            telegram: body.contact?.telegram?.trim() ?? "",
+            preferredContact: body.contact?.preferredContact ?? "telegram",
+            consentToContact: body.contact?.consentToContact ?? false,
+          },
+          survey: {
+            businessType: body.survey?.businessType ?? "",
+            teamSize: body.survey?.teamSize ?? "",
+            currentTools: body.survey?.currentTools?.trim() ?? "",
+            mainPains: body.survey?.mainPains?.trim() ?? "",
+            featurePriorities: body.survey?.featurePriorities ?? [],
+            preferredWorkspace: body.survey?.preferredWorkspace ?? "",
+            idealLeadCardNotes: body.survey?.idealLeadCardNotes?.trim() ?? "",
+            preferredStyle: body.survey?.preferredStyle?.trim() ?? "",
+            willingnessToPay: body.survey?.willingnessToPay ?? "",
+            earlyAccessInterest: body.survey?.earlyAccessInterest ?? "",
+          },
+        },
+        result.submissionId,
+      );
+    } catch (error) {
+      console.error("Submission saved, but email sending failed", error);
+    }
+
+    return NextResponse.json({
+      ok: true,
+      submissionId: result.submissionId,
+      email,
+    });
   } catch (error) {
     console.error("Failed to save early access submission", error);
 
