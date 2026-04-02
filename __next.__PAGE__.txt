@@ -1,6 +1,14 @@
 1:"$Sreact.fragment"
-2:I[69125,["/owo/_next/static/chunks/0fsi8lw5utejl.js","/owo/_next/static/chunks/0d3tkj33oycf2.js","/owo/_next/static/chunks/12m7u388-rg--.js"],"LandingPage"]
-3:I[97367,["/owo/_next/static/chunks/0fsi8lw5utejl.js","/owo/_next/static/chunks/0d3tkj33oycf2.js"],"OutletBoundary"]
-4:"$Sreact.suspense"
-0:{"rsc":["$","$1","c",{"children":[["$","$L2",null,{}],[["$","script","script-0",{"src":"/owo/_next/static/chunks/12m7u388-rg--.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"pl1FhXdlVCQOXH6puXTdG"}
-5:null
+2:I[17706,["/owo/_next/static/chunks/0dbhjjzl8qfwv.js","/owo/_next/static/chunks/0tjkwjoi2xt44.js"],"Hero"]
+3:I[64932,["/owo/_next/static/chunks/0dbhjjzl8qfwv.js","/owo/_next/static/chunks/0tjkwjoi2xt44.js"],"PainSection"]
+4:I[63212,["/owo/_next/static/chunks/0dbhjjzl8qfwv.js","/owo/_next/static/chunks/0tjkwjoi2xt44.js"],"SolutionSection"]
+5:I[5142,["/owo/_next/static/chunks/0dbhjjzl8qfwv.js","/owo/_next/static/chunks/0tjkwjoi2xt44.js"],"HowItWorks"]
+6:I[18600,["/owo/_next/static/chunks/0dbhjjzl8qfwv.js","/owo/_next/static/chunks/0tjkwjoi2xt44.js"],"AccessSection"]
+7:I[26,["/owo/_next/static/chunks/0dbhjjzl8qfwv.js","/owo/_next/static/chunks/0tjkwjoi2xt44.js"],"UseCases"]
+8:I[33256,["/owo/_next/static/chunks/0dbhjjzl8qfwv.js","/owo/_next/static/chunks/0tjkwjoi2xt44.js"],"SurveySection"]
+9:I[52788,["/owo/_next/static/chunks/0dbhjjzl8qfwv.js","/owo/_next/static/chunks/0tjkwjoi2xt44.js"],"FinalCTA"]
+a:I[97367,["/owo/_next/static/chunks/0dbhjjzl8qfwv.js"],"OutletBoundary"]
+b:"$Sreact.suspense"
+:HL["/owo-logo.png","image"]
+0:{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[rgba(13,14,21,0.75)] backdrop-blur-[14px]","children":["$","div",null,{"className":"mx-auto flex h-[60px] w-full max-w-6xl items-center justify-between px-4 sm:px-6","children":[["$","a",null,{"href":"#top","className":"inline-flex items-center gap-3","children":[["$","img",null,{"src":"/owo-logo.png","alt":"OWO CRM logo","className":"h-8 w-8 rounded-lg border border-white/15 object-cover"}],["$","span",null,{"className":"text-lg font-bold tracking-tight text-[#e8e9f0]","children":"OWO CRM"}]]}],["$","a",null,{"href":"#survey","className":"inline-flex items-center rounded-lg bg-[#6b7ff0] px-4 py-2 text-sm font-medium text-white transition-colors duration-200 hover:bg-[#8b9bf3]","children":"Начать бесплатно"}]]}]}],["$","main",null,{"children":[["$","$L2",null,{}],["$","$L3",null,{}],["$","$L4",null,{}],["$","$L5",null,{}],["$","$L6",null,{}],["$","$L7",null,{}],["$","$L8",null,{}],["$","$L9",null,{}]]}],["$","footer",null,{"className":"border-t border-white/10 px-4 py-6 sm:px-6","children":["$","div",null,{"className":"mx-auto flex w-full max-w-6xl flex-wrap items-center justify-center gap-2 text-sm text-[#8b8d9e]","children":[["$","span",null,{"children":"© 2025 OWO CRM"}],["$","span",null,{"className":"text-white/25","children":"·"}],["$","a",null,{"href":"https://t.me/owocrm_bot","target":"_blank","rel":"noreferrer","className":"text-[#a8b2ff] transition-colors hover:text-[#c0c8ff]","children":"Открыть в Telegram"}]]}]}]],[["$","script","script-0",{"src":"/owo/_next/static/chunks/0tjkwjoi2xt44.js","async":true}]],["$","$La",null,{"children":["$","$b",null,{"name":"Next.MetadataOutlet","children":"$@c"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"VbRmQbvlj3cZ84O79imC_"}
+c:null
