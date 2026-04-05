@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { BarChart2, Mail, TableProperties, type LucideIcon } from "lucide-react";
-import { LANDING_CONFIG } from "@/config/landing";
+import type { LandingConfig } from "@/config/landing";
 
 const iconMap: Record<string, LucideIcon> = {
   TableProperties,
@@ -10,7 +10,7 @@ const iconMap: Record<string, LucideIcon> = {
   BarChart2,
 };
 
-export function PainSection() {
+export function PainSection({ config }: { config: LandingConfig }) {
   return (
     <section className="px-4 py-18 sm:px-6 sm:py-20">
       <div className="mx-auto w-full max-w-6xl">
@@ -21,11 +21,11 @@ export function PainSection() {
           transition={{ duration: 0.45, ease: "easeOut" }}
           className="text-[clamp(1.9rem,4vw,2.4rem)] font-semibold tracking-tight text-[#e8e9f0]"
         >
-          {LANDING_CONFIG.pain.title}
+          {config.pain.title}
         </motion.h2>
 
         <div className="mt-8 grid gap-4 md:grid-cols-3">
-          {LANDING_CONFIG.pain.cards.map((card, index) => {
+          {config.pain.cards.map((card, index) => {
             const Icon = iconMap[card.icon] ?? TableProperties;
 
             return (

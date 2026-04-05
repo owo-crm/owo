@@ -42,3 +42,11 @@ next-env.d.ts
 
 # local dev logs
 .next-dev*.log
+.next-e2e*.log
+.local-postgres/
+
+# local assistant/tool metadata
+.zencoder/
+.zenflow/
+
+/src/generated/prisma

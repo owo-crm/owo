@@ -11,11 +11,17 @@ import {
   Rows3,
   Send,
 } from "lucide-react";
-import { LANDING_CONFIG } from "@/config/landing";
+import type { LandingConfig } from "@/config/landing";
 
-type Feature = (typeof LANDING_CONFIG.solution.features)[number];
+type Feature = LandingConfig["solution"]["features"][number];
 
-function FeatureVisual({ feature }: { feature: Feature }) {
+function FeatureVisual({
+  feature,
+  config,
+}: {
+  feature: Feature;
+  config: LandingConfig;
+}) {
   if (feature.kind === "import") {
     return (
       <div className="rounded-2xl border border-white/10 bg-white/5 p-4 sm:p-5">
@@ -24,7 +30,7 @@ function FeatureVisual({ feature }: { feature: Feature }) {
             <div className="space-y-2 text-xs text-[#8b8d9e]">
               <div className="flex items-center gap-2">
                 <Rows3 className="h-3.5 w-3.5 text-[#aeb9ff]" />
-                <span>Google Sheet</span>
+                <span>{config.solution.visuals.importSource}</span>
               </div>
               <div className="h-1.5 rounded bg-white/10" />
               <div className="h-1.5 w-5/6 rounded bg-white/10" />
@@ -36,7 +42,7 @@ function FeatureVisual({ feature }: { feature: Feature }) {
             <div className="space-y-2 text-xs text-[#d3d8ff]">
               <div className="flex items-center gap-2">
                 <Database className="h-3.5 w-3.5" />
-                <span>OWO CRM Leads</span>
+                <span>{config.solution.visuals.importTarget}</span>
               </div>
               <div className="h-1.5 rounded bg-[#8ea0ff]/30" />
               <div className="h-1.5 w-5/6 rounded bg-[#8ea0ff]/30" />
@@ -55,14 +61,14 @@ function FeatureVisual({ feature }: { feature: Feature }) {
           <div className="flex items-center justify-between gap-3">
             <div className="inline-flex items-center gap-2 text-sm text-[#e8e9f0]">
               <Mail className="h-4 w-4 text-[#8ea0ff]" />
-              <span>Письмо клиенту</span>
+              <span>{config.solution.visuals.emailTitle}</span>
             </div>
             <span className="rounded-full bg-emerald-400/15 px-2.5 py-1 text-xs text-emerald-300">
-              Отправлено
+              {config.solution.visuals.emailStatus}
             </span>
           </div>
           <p className="mt-3 text-sm leading-relaxed text-[#8b8d9e]">
-            Здравствуйте, Анна. Ваша заявка принята, менеджер уже назначен.
+            {config.solution.visuals.emailBody}
           </p>
         </div>
       </div>
@@ -73,9 +79,9 @@ function FeatureVisual({ feature }: { feature: Feature }) {
     <div className="rounded-2xl border border-white/10 bg-white/5 p-4 sm:p-5">
       <div className="rounded-xl border border-white/10 bg-[#0f1018] p-4">
         <div className="grid grid-cols-3 items-center gap-3">
-          <SourcePill icon={<Database className="h-3.5 w-3.5" />} label="Sheet" />
-          <SourcePill icon={<MessageSquareText className="h-3.5 w-3.5" />} label="Форма" />
-          <SourcePill icon={<PenLine className="h-3.5 w-3.5" />} label="Вручную" />
+          <SourcePill icon={<Database className="h-3.5 w-3.5" />} label={config.solution.visuals.sourceA} />
+          <SourcePill icon={<MessageSquareText className="h-3.5 w-3.5" />} label={config.solution.visuals.sourceB} />
+          <SourcePill icon={<PenLine className="h-3.5 w-3.5" />} label={config.solution.visuals.sourceC} />
         </div>
         <div className="mt-3 flex items-center justify-center gap-3 text-[#8ea0ff]">
           <ArrowRight className="h-4 w-4" />
@@ -85,7 +91,7 @@ function FeatureVisual({ feature }: { feature: Feature }) {
         <div className="mt-3 flex items-center justify-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-[#6b7ff0]/35 bg-[#6b7ff0]/10 px-3 py-1.5 text-xs text-[#d5dbff]">
             <Send className="h-3.5 w-3.5" />
-            <span>Единая воронка OWO CRM</span>
+            <span>{config.solution.visuals.unifiedFunnel}</span>
           </div>
         </div>
       </div>
@@ -102,7 +108,7 @@ function SourcePill({ icon, label }: { icon: ReactNode; label: string }) {
   );
 }
 
-export function SolutionSection() {
+export function SolutionSection({ config }: { config: LandingConfig }) {
   return (
     <section id="solution" className="section-alt px-4 py-18 sm:px-6 sm:py-20">
       <div className="mx-auto w-full max-w-6xl">
@@ -114,15 +120,15 @@ export function SolutionSection() {
           className="max-w-3xl"
         >
           <h2 className="text-[clamp(1.9rem,4vw,2.4rem)] font-semibold tracking-tight text-[#e8e9f0]">
-            {LANDING_CONFIG.solution.title}
+            {config.solution.title}
           </h2>
           <p className="mt-4 text-base leading-[1.65] text-[#8b8d9e]">
-            {LANDING_CONFIG.solution.subtitle}
+            {config.solution.subtitle}
           </p>
         </motion.div>
 
         <div className="mt-10 space-y-9">
-          {LANDING_CONFIG.solution.features.map((feature, index) => (
+          {config.solution.features.map((feature, index) => (
             <motion.article
               key={feature.title}
               initial={{ opacity: 0, y: 20 }}
@@ -145,7 +151,7 @@ export function SolutionSection() {
               </div>
 
               <div className={index % 2 === 0 ? "order-2" : "order-2 lg:order-1"}>
-                <FeatureVisual feature={feature} />
+                <FeatureVisual feature={feature} config={config} />
               </div>
             </motion.article>
           ))}

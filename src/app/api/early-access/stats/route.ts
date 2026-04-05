@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getEarlyAccessStats } from "@/lib/storage";
+import { getEarlyAccessStats, type EarlyAccessStatsFilters } from "@/lib/storage";
 
 export const runtime = "nodejs";
 
@@ -23,7 +23,29 @@ export async function GET(request: Request) {
   }
 
   try {
-    const stats = await getEarlyAccessStats();
+    const url = new URL(request.url);
+    const fromRaw = url.searchParams.get("from");
+    const toRaw = url.searchParams.get("to");
+    const language = url.searchParams.get("language");
+    const acquisitionChannel = url.searchParams.get("acquisition_channel");
+    const businessType = url.searchParams.get("business_type");
+    const willingnessToPay = url.searchParams.get("willingness_to_pay");
+
+    const from = fromRaw ? new Date(`${fromRaw}T00:00:00.000Z`) : null;
+    const to = toRaw ? new Date(`${toRaw}T23:59:59.999Z`) : null;
+
+    const filters: EarlyAccessStatsFilters = {
+      from: from && !Number.isNaN(from.getTime()) ? from : null,
+      to: to && !Number.isNaN(to.getTime()) ? to : null,
+      language: language && language !== "all" ? language : null,
+      acquisitionChannel:
+        acquisitionChannel && acquisitionChannel !== "all" ? acquisitionChannel : null,
+      businessType: businessType && businessType !== "all" ? businessType : null,
+      willingnessToPay:
+        willingnessToPay && willingnessToPay !== "all" ? willingnessToPay : null,
+    };
+
+    const stats = await getEarlyAccessStats(filters);
     return NextResponse.json({ ok: true, ...stats });
   } catch (error) {
     console.error("Failed to load early access stats", error);

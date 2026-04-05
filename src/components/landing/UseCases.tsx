@@ -10,7 +10,7 @@ import {
   ShoppingBag,
   type LucideIcon,
 } from "lucide-react";
-import { LANDING_CONFIG } from "@/config/landing";
+import type { LandingConfig } from "@/config/landing";
 
 const iconMap: Record<string, LucideIcon> = {
   Briefcase,
@@ -21,7 +21,7 @@ const iconMap: Record<string, LucideIcon> = {
   ShoppingBag,
 };
 
-export function UseCases() {
+export function UseCases({ config }: { config: LandingConfig }) {
   return (
     <section className="px-4 py-18 sm:px-6 sm:py-20">
       <div className="mx-auto w-full max-w-6xl">
@@ -32,7 +32,7 @@ export function UseCases() {
           transition={{ duration: 0.45, ease: "easeOut" }}
           className="max-w-3xl text-[clamp(1.9rem,4vw,2.4rem)] font-semibold tracking-tight text-[#e8e9f0]"
         >
-          {LANDING_CONFIG.useCases.title}
+          {config.useCases.title}
         </motion.h2>
 
         <motion.div
@@ -42,7 +42,7 @@ export function UseCases() {
           transition={{ duration: 0.45, ease: "easeOut" }}
           className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3"
         >
-          {LANDING_CONFIG.useCases.items.map((item) => {
+          {config.useCases.items.map((item) => {
             const Icon = iconMap[item.icon] ?? Briefcase;
 
             return (

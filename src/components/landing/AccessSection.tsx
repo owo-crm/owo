@@ -3,9 +3,9 @@
 import { motion } from "framer-motion";
 import { Monitor, Send } from "lucide-react";
 import type { ReactNode } from "react";
-import { LANDING_CONFIG } from "@/config/landing";
+import type { LandingConfig } from "@/config/landing";
 
-export function AccessSection() {
+export function AccessSection({ config }: { config: LandingConfig }) {
   return (
     <section className="section-alt px-4 py-18 sm:px-6 sm:py-20">
       <div className="mx-auto w-full max-w-6xl">
@@ -16,14 +16,14 @@ export function AccessSection() {
           transition={{ duration: 0.45, ease: "easeOut" }}
           className="text-[clamp(1.9rem,4vw,2.4rem)] font-semibold tracking-tight text-[#e8e9f0]"
         >
-          {LANDING_CONFIG.access.title}
+          {config.access.title}
         </motion.h2>
 
         <div className="mt-8 grid items-stretch gap-4 lg:grid-cols-[1fr_auto_1fr]">
           <AccessCard
             icon={<Monitor className="h-5 w-5 text-[#aeb9ff]" />}
-            title={LANDING_CONFIG.access.browser.title}
-            body={LANDING_CONFIG.access.browser.body}
+            title={config.access.browser.title}
+            body={config.access.browser.body}
             delay={0}
           />
 
@@ -35,14 +35,14 @@ export function AccessSection() {
             className="hidden items-center justify-center gap-3 px-2 lg:flex"
           >
             <span className="h-px w-8 bg-white/15" />
-            <span className="text-sm text-[#8b8d9e]">или</span>
+            <span className="text-sm text-[#8b8d9e]">{config.access.betweenLabel}</span>
             <span className="h-px w-8 bg-white/15" />
           </motion.div>
 
           <AccessCard
             icon={<Send className="h-5 w-5 text-[#aeb9ff]" />}
-            title={LANDING_CONFIG.access.telegram.title}
-            body={LANDING_CONFIG.access.telegram.body}
+            title={config.access.telegram.title}
+            body={config.access.telegram.body}
             delay={0.08}
           />
         </div>

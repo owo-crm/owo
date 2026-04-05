@@ -1,5 +1,6 @@
 import { Resend } from "resend";
 import type { EarlyAccessPayload } from "@/lib/storage";
+import { createEmailOutboxRecord, updateEmailOutboxRecord } from "@/lib/storage";
 
 type EmailResult = {
   attempted: boolean;
@@ -139,17 +140,42 @@ export async function sendEarlyAccessEmails(
 
   if (notifyTo.length > 0) {
     const notificationSubject = `OWO early access: ${payload.contact.name} (${submissionId.slice(0, 8)})`;
-    try {
-      await resend.emails.send({
-        from: resendFrom!,
-        to: notifyTo,
+    const notificationText = buildNotificationText(payload, submissionId);
+    const notificationHtml = buildNotificationHtml(payload, submissionId);
+
+    for (const recipient of notifyTo) {
+      const outboxId = await createEmailOutboxRecord({
+        submissionId,
+        direction: "team_notification",
+        toAddress: recipient,
         subject: notificationSubject,
-        text: buildNotificationText(payload, submissionId),
-        html: buildNotificationHtml(payload, submissionId),
+        payload: {
+          email_type: "team_notification",
+        },
       });
-      notificationSent = true;
-    } catch (error) {
-      console.error("Failed to send internal early access notification", error);
+
+      try {
+        const response = await resend.emails.send({
+          from: resendFrom!,
+          to: recipient,
+          subject: notificationSubject,
+          text: notificationText,
+          html: notificationHtml,
+        });
+
+        await updateEmailOutboxRecord(outboxId, {
+          status: "sent",
+          providerMessageId:
+            "id" in response && typeof response.id === "string" ? response.id : null,
+        });
+        notificationSent = true;
+      } catch (error) {
+        await updateEmailOutboxRecord(outboxId, {
+          status: "failed",
+          errorMessage: error instanceof Error ? error.message : "UNKNOWN_ERROR",
+        });
+        console.error("Failed to send internal early access notification", error);
+      }
     }
   }
 
@@ -165,16 +191,36 @@ export async function sendEarlyAccessEmails(
         ? `Dziekujemy za zgloszenie do early access OWO CRM.\n\nSubmission ID: ${submissionId}\nSkontaktujemy sie z Toba po weryfikacji.`
         : `Thanks for joining OWO CRM early access.\n\nSubmission ID: ${submissionId}\nWe will contact you after review.`;
 
+    const outboxId = await createEmailOutboxRecord({
+      submissionId,
+      direction: "user_confirmation",
+      toAddress: payload.contact.email,
+      subject,
+      payload: {
+        email_type: "user_confirmation",
+      },
+    });
+
     try {
-      await resend.emails.send({
+      const response = await resend.emails.send({
         from: resendFrom!,
         to: payload.contact.email,
         subject,
         text,
         html: `<p>${escapeHtml(text).replaceAll("\n", "<br/>")}</p>`,
       });
+
+      await updateEmailOutboxRecord(outboxId, {
+        status: "sent",
+        providerMessageId:
+          "id" in response && typeof response.id === "string" ? response.id : null,
+      });
       confirmationSent = true;
     } catch (error) {
+      await updateEmailOutboxRecord(outboxId, {
+        status: "failed",
+        errorMessage: error instanceof Error ? error.message : "UNKNOWN_ERROR",
+      });
       console.error("Failed to send user early access confirmation", error);
     }
   }

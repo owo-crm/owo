@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { sendEarlyAccessEmails } from "@/lib/email";
-import { persistEarlyAccessSubmission } from "@/lib/storage";
+import { persistEarlyAccessSubmission, type EarlyAccessPayload } from "@/lib/storage";
 
 export const runtime = "nodejs";
 
@@ -63,7 +63,7 @@ export async function POST(request: Request) {
       );
     }
 
-    const result = await persistEarlyAccessSubmission({
+    const payload: EarlyAccessPayload = {
       language: body.language ?? "en",
       source: body.source ?? "landing",
       utm: body.utm ?? {},
@@ -86,7 +86,9 @@ export async function POST(request: Request) {
         willingnessToPay: body.survey?.willingnessToPay ?? "",
         earlyAccessInterest: body.survey?.earlyAccessInterest ?? "",
       },
-    });
+    };
+
+    const result = await persistEarlyAccessSubmission(payload);
 
     let email = {
       attempted: false,
@@ -95,33 +97,7 @@ export async function POST(request: Request) {
     };
 
     try {
-      email = await sendEarlyAccessEmails(
-        {
-          language: body.language ?? "en",
-          source: body.source ?? "landing",
-          utm: body.utm ?? {},
-          contact: {
-            name: body.contact?.name?.trim() ?? "",
-            email: body.contact?.email?.trim() ?? "",
-            telegram: body.contact?.telegram?.trim() ?? "",
-            preferredContact: body.contact?.preferredContact ?? "telegram",
-            consentToContact: body.contact?.consentToContact ?? false,
-          },
-          survey: {
-            businessType: body.survey?.businessType ?? "",
-            teamSize: body.survey?.teamSize ?? "",
-            currentTools: body.survey?.currentTools?.trim() ?? "",
-            mainPains: body.survey?.mainPains?.trim() ?? "",
-            featurePriorities: body.survey?.featurePriorities ?? [],
-            preferredWorkspace: body.survey?.preferredWorkspace ?? "",
-            idealLeadCardNotes: body.survey?.idealLeadCardNotes?.trim() ?? "",
-            preferredStyle: body.survey?.preferredStyle?.trim() ?? "",
-            willingnessToPay: body.survey?.willingnessToPay ?? "",
-            earlyAccessInterest: body.survey?.earlyAccessInterest ?? "",
-          },
-        },
-        result.submissionId,
-      );
+      email = await sendEarlyAccessEmails(payload, result.submissionId);
     } catch (error) {
       console.error("Submission saved, but email sending failed", error);
     }

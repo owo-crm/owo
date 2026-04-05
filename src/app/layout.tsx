@@ -1,11 +1,17 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { LANDING_CONFIG } from "@/config/landing";
+import { getLandingConfig } from "@/config/landing";
+import { Geist } from "next/font/google";
+import { cn } from "@/lib/utils";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+
+const DEFAULT_LANDING = getLandingConfig("pl");
 
 export const metadata: Metadata = {
-  title: LANDING_CONFIG.productName,
+  title: DEFAULT_LANDING.productName,
   description:
-    "OWO CRM turns Google Sheets and website leads into a clear pipeline with automated emails.",
+    "OWO CRM helps teams handle inquiries, offers, contracts, and follow-up in one operational flow.",
 };
 
 export default function RootLayout({
@@ -14,7 +20,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ru" className="h-full antialiased">
+    <html lang="pl" className={cn("h-full antialiased", "font-sans", geist.variable)}>
       <body className="flex min-h-full flex-col">{children}</body>
     </html>
   );

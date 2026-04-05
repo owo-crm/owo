@@ -1,9 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { LANDING_CONFIG } from "@/config/landing";
+import type { LandingConfig } from "@/config/landing";
 
-export function HowItWorks() {
+export function HowItWorks({ config }: { config: LandingConfig }) {
   return (
     <section id="how-it-works" className="px-4 py-18 sm:px-6 sm:py-20">
       <div className="mx-auto w-full max-w-6xl">
@@ -14,13 +14,13 @@ export function HowItWorks() {
           transition={{ duration: 0.45, ease: "easeOut" }}
           className="text-[clamp(1.9rem,4vw,2.4rem)] font-semibold tracking-tight text-[#e8e9f0]"
         >
-          {LANDING_CONFIG.howItWorks.title}
+          {config.howItWorks.title}
         </motion.h2>
 
         <div className="relative mt-10">
           <div className="pointer-events-none absolute left-0 right-0 top-1/2 hidden -translate-y-1/2 border-t border-dashed border-[#6b7ff0]/35 lg:block" />
           <div className="grid gap-4 lg:grid-cols-3">
-            {LANDING_CONFIG.howItWorks.steps.map((step, index) => (
+            {config.howItWorks.steps.map((step, index) => (
               <motion.article
                 key={step.id}
                 initial={{ opacity: 0, y: 20 }}

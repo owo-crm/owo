@@ -1,0 +1,273 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum MemberRole {
+  OWNER
+  ADMIN
+  OPERATOR
+}
+
+enum LeadSource {
+  manual
+  google_sheet
+  website_form
+  api
+  meta_form_direct
+  import_file
+}
+
+enum IngestFamily {
+  google_sheet
+  website_form
+  api
+  meta_form_direct
+  import_file
+}
+
+enum EmailOutboxStatus {
+  queued
+  sent
+  failed
+}
+
+model User {
+  id              String           @id @default(uuid())
+  telegramId      String?          @unique @map("telegram_id")
+  email           String?          @db.VarChar(320)
+  displayName     String           @map("display_name")
+  isPlatformAdmin Boolean          @default(false) @map("is_platform_admin")
+  createdAt       DateTime         @default(now()) @map("created_at")
+  updatedAt       DateTime         @updatedAt @map("updated_at")
+  memberships     BusinessMember[]
+  ownedLeads      Lead[]           @relation("LeadOwner")
+  createdTasks    Task[]           @relation("TaskCreator")
+  assignedTasks   Task[]           @relation("TaskAssignee")
+  events          BusinessEvent[]  @relation("EventActor")
+
+  @@map("users")
+}
+
+model Business {
+  id                   String          @id @default(uuid())
+  name                 String
+  slug                 String?         @unique
+  followUpTaskTitle    String          @default("Follow up lead") @map("follow_up_task_title")
+  followUpTaskDueHours Int             @default(24) @map("follow_up_task_due_hours")
+  createdAt            DateTime        @default(now()) @map("created_at")
+  updatedAt            DateTime        @updatedAt @map("updated_at")
+  members              BusinessMember[]
+  leadStatuses         LeadStatus[]
+  leads                Lead[]
+  tasks                Task[]
+  events               BusinessEvent[]
+  ingestSources        IngestSource[]
+  ingestReceipts       IngestReceipt[]
+
+  @@map("businesses")
+}
+
+model BusinessMember {
+  id         String     @id @default(uuid())
+  businessId String     @map("business_id")
+  userId     String     @map("user_id")
+  role       MemberRole
+  createdAt  DateTime   @default(now()) @map("created_at")
+  updatedAt  DateTime   @updatedAt @map("updated_at")
+  business   Business   @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  user       User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([businessId, userId])
+  @@index([businessId])
+  @@index([userId])
+  @@map("business_members")
+}
+
+model LeadStatus {
+  id         String   @id @default(uuid())
+  businessId String   @map("business_id")
+  key        String
+  label      String
+  colorHex   String   @default("#4b5563") @map("color_hex")
+  position   Int
+  isWon      Boolean  @default(false) @map("is_won")
+  isLost     Boolean  @default(false) @map("is_lost")
+  isFollowUp Boolean  @default(false) @map("is_follow_up")
+  createdAt  DateTime @default(now()) @map("created_at")
+  updatedAt  DateTime @updatedAt @map("updated_at")
+  business   Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  leads      Lead[]
+
+  @@unique([businessId, key])
+  @@unique([businessId, position])
+  @@index([businessId])
+  @@map("lead_statuses")
+}
+
+model Lead {
+  id               String         @id @default(uuid())
+  uid              String         @unique @default(cuid())
+  businessId       String         @map("business_id")
+  source           LeadSource
+  sourceExternalKey String?       @map("source_external_key")
+  sourcePayloadHash String?       @map("source_payload_hash")
+  dedupeKey        String?        @map("dedupe_key")
+  fullName         String         @map("full_name")
+  phone            String?
+  email            String?        @db.VarChar(320)
+  note             String?        @db.Text
+  metadata         Json?
+  statusId         String?        @map("status_id")
+  ownerId          String?        @map("owner_id")
+  createdAt        DateTime       @default(now()) @map("created_at")
+  updatedAt        DateTime       @updatedAt @map("updated_at")
+  archivedAt       DateTime?      @map("archived_at")
+  business         Business       @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  status           LeadStatus?    @relation(fields: [statusId], references: [id], onDelete: SetNull)
+  owner            User?          @relation("LeadOwner", fields: [ownerId], references: [id], onDelete: SetNull)
+  tasks            Task[]
+  events           BusinessEvent[]
+  ingestReceipts   IngestReceipt[]
+
+  @@unique([businessId, source, sourceExternalKey], map: "leads_business_source_external_key_unique")
+  @@index([businessId, dedupeKey])
+  @@index([businessId, createdAt])
+  @@index([businessId, statusId])
+  @@index([businessId, ownerId])
+  @@map("leads")
+}
+
+model Task {
+  id          String    @id @default(uuid())
+  businessId  String    @map("business_id")
+  leadId      String?   @map("lead_id")
+  assigneeId  String?   @map("assignee_id")
+  createdById String?   @map("created_by_id")
+  title       String
+  note        String?   @db.Text
+  dueAt       DateTime? @map("due_at")
+  doneAt      DateTime? @map("done_at")
+  createdAt   DateTime  @default(now()) @map("created_at")
+  updatedAt   DateTime  @updatedAt @map("updated_at")
+  business    Business  @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  lead        Lead?     @relation(fields: [leadId], references: [id], onDelete: SetNull)
+  assignee    User?     @relation("TaskAssignee", fields: [assigneeId], references: [id], onDelete: SetNull)
+  createdBy   User?     @relation("TaskCreator", fields: [createdById], references: [id], onDelete: SetNull)
+  events      BusinessEvent[]
+
+  @@index([businessId, doneAt])
+  @@index([businessId, dueAt])
+  @@index([businessId, assigneeId])
+  @@index([leadId])
+  @@map("tasks")
+}
+
+model BusinessEvent {
+  id          String   @id @default(uuid())
+  businessId  String   @map("business_id")
+  type        String
+  actorUserId String?  @map("actor_user_id")
+  leadId      String?  @map("lead_id")
+  taskId      String?  @map("task_id")
+  payload     Json?
+  createdAt   DateTime @default(now()) @map("created_at")
+  business    Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  actorUser   User?    @relation("EventActor", fields: [actorUserId], references: [id], onDelete: SetNull)
+  lead        Lead?    @relation(fields: [leadId], references: [id], onDelete: SetNull)
+  task        Task?    @relation(fields: [taskId], references: [id], onDelete: SetNull)
+
+  @@index([businessId, createdAt])
+  @@index([businessId, type])
+  @@index([leadId])
+  @@index([taskId])
+  @@map("business_events")
+}
+
+model IngestSource {
+  id         String       @id @default(uuid())
+  businessId String       @map("business_id")
+  family     IngestFamily
+  key        String       @unique
+  name       String
+  secretHash String?      @map("secret_hash")
+  isActive   Boolean      @default(true) @map("is_active")
+  createdAt  DateTime     @default(now()) @map("created_at")
+  updatedAt  DateTime     @updatedAt @map("updated_at")
+  business   Business     @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  receipts   IngestReceipt[]
+
+  @@index([businessId, family])
+  @@map("ingest_sources")
+}
+
+model IngestReceipt {
+  id             String       @id @default(uuid())
+  businessId     String       @map("business_id")
+  sourceKey      String       @map("source_key")
+  sourceFamily   IngestFamily @map("source_family")
+  idempotencyKey String       @map("idempotency_key")
+  leadId         String?      @map("lead_id")
+  rawPayload     Json?        @map("raw_payload")
+  createdAt      DateTime     @default(now()) @map("created_at")
+  business       Business     @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  source         IngestSource @relation(fields: [sourceKey], references: [key], onDelete: Cascade)
+  lead           Lead?        @relation(fields: [leadId], references: [id], onDelete: SetNull)
+
+  @@unique([businessId, sourceKey, idempotencyKey])
+  @@index([businessId, createdAt])
+  @@map("ingest_receipts")
+}
+
+model SurveySubmission {
+  id                 String   @id @default(uuid())
+  language           String
+  source             String
+  utm                Json?
+  name               String
+  email              String   @db.VarChar(320)
+  telegram           String?
+  preferredContact   String   @map("preferred_contact")
+  consentToContact   Boolean  @default(false) @map("consent_to_contact")
+  businessType       String   @map("business_type")
+  teamSize           String   @map("team_size")
+  currentTools       String   @map("current_tools") @db.Text
+  mainPains          String   @map("main_pains") @db.Text
+  featurePriorities  Json     @map("feature_priorities")
+  preferredWorkspace String   @map("preferred_workspace")
+  idealLeadCardNotes String   @map("ideal_lead_card_notes") @db.Text
+  preferredStyle     String   @map("preferred_style")
+  willingnessToPay   String   @map("willingness_to_pay")
+  earlyAccessInterest String  @map("early_access_interest")
+  createdAt          DateTime @default(now()) @map("created_at")
+  outbox             EmailOutbox[]
+
+  @@index([createdAt])
+  @@index([language])
+  @@map("survey_submissions")
+}
+
+model EmailOutbox {
+  id                String            @id @default(uuid())
+  submissionId      String?           @map("submission_id")
+  channel           String            @default("email")
+  direction         String
+  toAddress         String            @map("to_address")
+  subject           String
+  payload           Json?
+  status            EmailOutboxStatus @default(queued)
+  providerMessageId String?           @map("provider_message_id")
+  errorMessage      String?           @map("error_message") @db.Text
+  sentAt            DateTime?         @map("sent_at")
+  createdAt         DateTime          @default(now()) @map("created_at")
+  updatedAt         DateTime          @updatedAt @map("updated_at")
+  submission        SurveySubmission? @relation(fields: [submissionId], references: [id], onDelete: SetNull)
+
+  @@index([submissionId])
+  @@index([status, createdAt])
+  @@map("email_outbox")
+}
