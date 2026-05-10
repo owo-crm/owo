@@ -82,7 +82,7 @@ export function ManusLanding() {
           </a>
 
           <a
-            href="#how-it-works"
+            href="/app"
             style={{
               fontFamily: fontSans,
               fontWeight: 400,
