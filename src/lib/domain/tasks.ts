@@ -15,13 +15,14 @@ export function toTaskDto(task: {
   doneAt: Date | null;
   createdAt: Date;
   updatedAt: Date;
-  lead: { uid: string } | null;
+  lead: { uid: string; fullName: string } | null;
   assignee: { id: string; displayName: string } | null;
 }): TaskDto {
   return {
     id: task.id,
     business_id: task.businessId,
     lead_uid: task.lead?.uid ?? null,
+    lead_name: task.lead?.fullName ?? null,
     title: task.title,
     note: task.note,
     due_at: toIso(task.dueAt),
@@ -66,6 +67,7 @@ export async function createTask(input: {
       lead: {
         select: {
           uid: true,
+          fullName: true,
         },
       },
     },
@@ -165,6 +167,7 @@ export async function listTasks(input: {
       lead: {
         select: {
           uid: true,
+          fullName: true,
         },
       },
     },
@@ -184,6 +187,7 @@ export async function patchTask(
     note?: string | null;
     dueAt?: Date | null;
     assigneeId?: string | null;
+    leadId?: string | null;
   },
 ) {
   const existing = await prisma.task.findFirst({
@@ -207,6 +211,7 @@ export async function patchTask(
       ...(patch.note !== undefined ? { note: patch.note } : {}),
       ...(patch.dueAt !== undefined ? { dueAt: patch.dueAt } : {}),
       ...(patch.assigneeId !== undefined ? { assigneeId: patch.assigneeId } : {}),
+      ...(patch.leadId !== undefined ? { leadId: patch.leadId } : {}),
     },
     include: {
       assignee: {
@@ -218,6 +223,7 @@ export async function patchTask(
       lead: {
         select: {
           uid: true,
+          fullName: true,
         },
       },
     },
@@ -264,6 +270,7 @@ export async function markTaskDone(taskId: string, businessId: string, actorUser
       lead: {
         select: {
           uid: true,
+          fullName: true,
         },
       },
     },

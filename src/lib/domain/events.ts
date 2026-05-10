@@ -1,5 +1,6 @@
 import type { Prisma } from "@/generated/prisma/client";
 import { prisma } from "@/lib/db";
+import { triggerAutomationForEvent } from "@/lib/domain/automation";
 
 export async function createBusinessEvent(input: {
   businessId: string;
@@ -9,7 +10,7 @@ export async function createBusinessEvent(input: {
   taskId?: string | null;
   payload?: Record<string, unknown> | null;
 }) {
-  return prisma.businessEvent.create({
+  const event = await prisma.businessEvent.create({
     data: {
       businessId: input.businessId,
       type: input.type,
@@ -19,4 +20,20 @@ export async function createBusinessEvent(input: {
       payload: (input.payload as Prisma.InputJsonValue | undefined) ?? undefined,
     },
   });
+
+  try {
+    await triggerAutomationForEvent({
+      id: event.id,
+      businessId: event.businessId,
+      type: event.type,
+      actorUserId: event.actorUserId,
+      leadId: event.leadId,
+      taskId: event.taskId,
+      payload: (event.payload as Record<string, unknown> | null) ?? null,
+    });
+  } catch (error) {
+    console.error("Automation trigger failed for business event", error);
+  }
+
+  return event;
 }

@@ -27,6 +27,15 @@ npm run prisma:migrate:deploy
 npm run prisma:generate
 ```
 
+Important for lead notes:
+- If `POST /api/v1/leads/{uid}/notes` returns `LEAD_NOTES_NOT_READY`, run the two commands above again and restart `npm run dev`.
+
+Important for automation scenarios:
+- `automation_scenarios` and `automation_runs` are created by the same migration deploy step.
+- If automation endpoints fail with schema errors, rerun:
+  - `npm run prisma:migrate:deploy`
+  - `npm run prisma:generate`
+
 ## 4) Seed MVP demo data
 
 ```powershell
@@ -72,11 +81,14 @@ Expected flow:
 2. lead `create`
 3. lead `merge` (dedupe)
 4. lead `patch`
-5. task `create`
-6. task `done`
-7. read events
-8. ingest idempotency (`website_form`, `api`)
-9. early-access submit + filtered stats/comparisons query
+5. automation scenarios list
+6. automation runs read
+7. automation dry-run
+8. task `create`
+9. task `done`
+10. read events
+11. ingest idempotency (`website_form`, `api`)
+12. early-access submit + filtered stats/comparisons query
 
 ## 7) One-pass quality gate
 
@@ -91,13 +103,40 @@ This runs:
 - `build`
 - `integration e2e`
 
+## 7.1) Wave A pre-review gate
+
+For CRM core feature blocks, use:
+
+```powershell
+npm run quality:wave-a
+```
+
+This includes:
+- `lint`
+- `build`
+- `integration e2e`
+- copy-quality scan for broken text encoding artifacts
+
 ## 8) Admin Survey intent
 
 `/admin/survey` is **analytics-first**, not processing workflow:
 - priority is majority/comparative insight (winner/share/margin by question);
 - breakdowns and recent submissions are secondary supporting views.
 
-## 9) Stop local Postgres
+## 9) Automation V1 scope
+
+`/app/settings` now includes `Automation` tab:
+- simple `When / If / Then` wizard on scenario cards;
+- enable/disable scenarios;
+- dry-run test for selected lead (no mutations);
+- last run status (`succeeded | failed | skipped`) and error.
+
+Current V1 limits:
+- immediate reactions only (no delayed scheduler jobs);
+- at most 2 enabled conditions per scenario;
+- linear action chain only.
+
+## 10) Stop local Postgres
 
 ```powershell
 npm run db:stop
@@ -111,3 +150,7 @@ npm run db:stop
   - Add `EARLY_ACCESS_STATS_TOKEN` and pass token in query/header.
 - Port `3000` busy:
   - Stop existing listener before running local smoke scripts.
+- `LEAD_NOTES_NOT_READY` on notes create:
+  - `npm run prisma:migrate:deploy`
+  - `npm run prisma:generate`
+  - restart `npm run dev`

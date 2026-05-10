@@ -255,6 +255,112 @@ async function main() {
     });
   }
 
+  await prisma.businessSettings.upsert({
+    where: { businessId: business.id },
+    update: {
+      companyName: "OWOcrm Inc",
+      emailAddress: "admin@owocrm.com",
+      phoneNumber: "+1 (555) 123-4567",
+      timezone: "UTC+1 (Central European Time)",
+      language: "English",
+      notificationEmailAlerts: true,
+      notificationPushAlerts: true,
+      notificationTaskReminders: true,
+      securityTwoFactor: false,
+      securitySessionTimeout: "30 minutes",
+      appearanceThemeMode: "Light",
+      appearanceDensity: "Comfortable",
+    },
+    create: {
+      businessId: business.id,
+      companyName: "OWOcrm Inc",
+      emailAddress: "admin@owocrm.com",
+      phoneNumber: "+1 (555) 123-4567",
+      timezone: "UTC+1 (Central European Time)",
+      language: "English",
+      notificationEmailAlerts: true,
+      notificationPushAlerts: true,
+      notificationTaskReminders: true,
+      securityTwoFactor: false,
+      securitySessionTimeout: "30 minutes",
+      appearanceThemeMode: "Light",
+      appearanceDensity: "Comfortable",
+    },
+  });
+
+  const stockSeeds = [
+    { sku: "PRD-001", name: "Starter Package", category: "Packages", qty: 34, minQty: 10, price: 199 },
+    { sku: "PRD-002", name: "Pro Package", category: "Packages", qty: 8, minQty: 10, price: 399 },
+    { sku: "PRD-003", name: "Enterprise Add-on", category: "Add-ons", qty: 0, minQty: 3, price: 999 },
+    { sku: "PRD-004", name: "Support Retainer", category: "Services", qty: 17, minQty: 5, price: 149 },
+    { sku: "PRD-005", name: "Automation Setup", category: "Services", qty: 6, minQty: 4, price: 349 },
+  ];
+
+  for (const item of stockSeeds) {
+    await prisma.stockItem.upsert({
+      where: {
+        businessId_sku: {
+          businessId: business.id,
+          sku: item.sku,
+        },
+      },
+      update: {
+        name: item.name,
+        category: item.category,
+        qty: item.qty,
+        minQty: item.minQty,
+        price: item.price,
+      },
+      create: {
+        businessId: business.id,
+        sku: item.sku,
+        name: item.name,
+        category: item.category,
+        qty: item.qty,
+        minQty: item.minQty,
+        price: item.price,
+      },
+    });
+  }
+
+  const extraMembers = [
+    { telegramId: "seed-operator-1", displayName: "Sarah Johnson", email: "sarah@owo.local", role: "OPERATOR" as const },
+    { telegramId: "seed-operator-2", displayName: "Mike Chen", email: "mike@owo.local", role: "OPERATOR" as const },
+    { telegramId: "seed-admin-1", displayName: "Emma Wilson", email: "emma@owo.local", role: "ADMIN" as const },
+  ];
+
+  for (const member of extraMembers) {
+    const user = await prisma.user.upsert({
+      where: { telegramId: member.telegramId },
+      update: {
+        displayName: member.displayName,
+        email: member.email,
+      },
+      create: {
+        telegramId: member.telegramId,
+        displayName: member.displayName,
+        email: member.email,
+      },
+    });
+
+    await prisma.businessMember.upsert({
+      where: {
+        businessId_userId: {
+          businessId: business.id,
+          userId: user.id,
+        },
+      },
+      update: {
+        role: member.role,
+      },
+      create: {
+        businessId: business.id,
+        userId: user.id,
+        role: member.role,
+      },
+    });
+  }
+
   await prisma.businessEvent.create({
     data: {
       businessId: business.id,
@@ -266,11 +372,154 @@ async function main() {
     },
   });
 
+  const financeInvoiceSeeds = [
+    {
+      number: "INV-2026-001",
+      leadId: leadIds[0] ?? null,
+      customerName: "Acme Corporation",
+      issueDate: new Date("2026-04-01T00:00:00.000Z"),
+      dueDate: new Date("2026-04-08T00:00:00.000Z"),
+      status: "sent" as const,
+      subtotal: 8400,
+      tax: 0,
+      total: 8400,
+      notes: "Website package",
+    },
+    {
+      number: "INV-2026-002",
+      leadId: leadIds[1] ?? null,
+      customerName: "Tech Solutions Inc",
+      issueDate: new Date("2026-04-03T00:00:00.000Z"),
+      dueDate: new Date("2026-04-14T00:00:00.000Z"),
+      status: "draft" as const,
+      subtotal: 6200,
+      tax: 0,
+      total: 6200,
+      notes: "Automation setup",
+    },
+    {
+      number: "INV-2026-003",
+      leadId: leadIds[2] ?? null,
+      customerName: "Global Enterprises",
+      issueDate: new Date("2026-03-25T00:00:00.000Z"),
+      dueDate: new Date("2026-03-31T00:00:00.000Z"),
+      status: "overdue" as const,
+      subtotal: 11200,
+      tax: 0,
+      total: 11200,
+      notes: "CRM onboarding package",
+    },
+  ];
+
+  for (const invoice of financeInvoiceSeeds) {
+    const existing = await prisma.financeInvoice.findFirst({
+      where: { businessId: business.id, number: invoice.number },
+      select: { id: true },
+    });
+    if (existing) {
+      await prisma.financeInvoice.update({
+        where: { id: existing.id },
+        data: {
+          leadId: invoice.leadId,
+          customerName: invoice.customerName,
+          issueDate: invoice.issueDate,
+          dueDate: invoice.dueDate,
+          status: invoice.status,
+          subtotal: invoice.subtotal,
+          tax: invoice.tax,
+          total: invoice.total,
+          notes: invoice.notes,
+        },
+      });
+    } else {
+      await prisma.financeInvoice.create({
+        data: {
+          businessId: business.id,
+          leadId: invoice.leadId,
+          customerName: invoice.customerName,
+          number: invoice.number,
+          currency: "USD",
+          issueDate: invoice.issueDate,
+          dueDate: invoice.dueDate,
+          status: invoice.status,
+          subtotal: invoice.subtotal,
+          tax: invoice.tax,
+          total: invoice.total,
+          notes: invoice.notes,
+        },
+      });
+    }
+  }
+
+  const invoiceByNumber = new Map(
+    (
+      await prisma.financeInvoice.findMany({
+        where: { businessId: business.id },
+        select: { id: true, number: true },
+      })
+    ).map((invoice) => [invoice.number, invoice.id]),
+  );
+
+  const paymentSeeds = [
+    {
+      invoiceNumber: "INV-2026-001",
+      amount: 4000,
+      paidAt: new Date("2026-04-04T10:00:00.000Z"),
+      method: "bank_transfer",
+      reference: "TRX-001",
+    },
+    {
+      invoiceNumber: "INV-2026-001",
+      amount: 4400,
+      paidAt: new Date("2026-04-07T10:00:00.000Z"),
+      method: "card",
+      reference: "TRX-002",
+    },
+    {
+      invoiceNumber: "INV-2026-003",
+      amount: 2000,
+      paidAt: new Date("2026-03-27T10:00:00.000Z"),
+      method: "bank_transfer",
+      reference: "TRX-003",
+    },
+  ];
+
+  for (const payment of paymentSeeds) {
+    const invoiceId = invoiceByNumber.get(payment.invoiceNumber);
+    if (!invoiceId) continue;
+
+    const existing = await prisma.financePayment.findFirst({
+      where: {
+        businessId: business.id,
+        invoiceId,
+        reference: payment.reference,
+      },
+      select: { id: true },
+    });
+
+    if (!existing) {
+      await prisma.financePayment.create({
+        data: {
+          businessId: business.id,
+          invoiceId,
+          amount: payment.amount,
+          currency: "USD",
+          paidAt: payment.paidAt,
+          method: payment.method,
+          reference: payment.reference,
+        },
+      });
+    }
+  }
+
   console.log("Seed completed:", {
     businessId: business.id,
     ownerId: owner.id,
     leads: leadSeeds.length,
     openTasks: openTaskLeadIds.length,
+    financeInvoices: financeInvoiceSeeds.length,
+    stockItems: stockSeeds.length,
+    teamMembers: extraMembers.length + 1,
   });
 }
 

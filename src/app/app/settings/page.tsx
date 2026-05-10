@@ -1,5 +1,5 @@
-import { redirect } from "next/navigation";
+import { SettingsPage } from "@/components/manus-crm/SettingsPage";
 
-export default function AppSettingsRedirectPage() {
-  redirect("/app?tab=settings");
+export default function AppSettingsRoute() {
+  return <SettingsPage />;
 }

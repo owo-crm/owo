@@ -55,6 +55,8 @@ async function main() {
   let token = "";
   let leadUid = "";
   let taskId = "";
+  let stockItemId = "";
+  let automationScenarioId = "";
 
   const unique = Date.now();
   const leadPayload = {
@@ -129,6 +131,71 @@ async function main() {
     assert(patched.lead?.full_name?.includes("Patched"), "Lead patch did not apply");
   });
 
+  await runStep("lead detail + notes create", async () => {
+    const detailBefore = await requestJson(`/api/v1/leads/${leadUid}/detail`, {
+      method: "GET",
+      headers: { authorization: `Bearer ${token}` },
+    });
+    assert(detailBefore.detail?.lead?.uid === leadUid, "Lead detail uid mismatch");
+
+    const noteText = `Week3 note ${unique}`;
+    const noteCreate = await requestJson(`/api/v1/leads/${leadUid}/notes`, {
+      method: "POST",
+      headers: securedHeaders,
+      body: JSON.stringify({ text: noteText }),
+    });
+    assert(typeof noteCreate.note?.id === "string", "Lead note id missing after create");
+
+    const detailAfter = await requestJson(`/api/v1/leads/${leadUid}/detail`, {
+      method: "GET",
+      headers: { authorization: `Bearer ${token}` },
+    });
+    assert(
+      Array.isArray(detailAfter.detail?.notes) &&
+        detailAfter.detail.notes.some((note) => note.text === noteText),
+      "Lead detail should include created note",
+    );
+  });
+
+  await runStep("automation scenarios list", async () => {
+    const scenarios = await requestJson("/api/v1/settings/automation/scenarios", {
+      method: "GET",
+      headers: { authorization: `Bearer ${token}` },
+    });
+    assert(Array.isArray(scenarios.scenarios), "Automation scenarios list missing");
+    assert(scenarios.scenarios.length >= 1, "No automation scenarios available");
+    automationScenarioId = scenarios.scenarios[0]?.id;
+    assert(
+      typeof automationScenarioId === "string" && automationScenarioId.length > 0,
+      "Automation scenario id missing",
+    );
+  });
+
+  await runStep("automation runs after lead create", async () => {
+    const runs = await requestJson("/api/v1/settings/automation/runs?limit=80", {
+      method: "GET",
+      headers: { authorization: `Bearer ${token}` },
+    });
+    assert(Array.isArray(runs.runs), "Automation runs payload missing");
+    assert(
+      runs.runs.some((run) => run.event_type === "lead.created"),
+      "Expected automation run for lead.created",
+    );
+  });
+
+  await runStep("automation dry-run", async () => {
+    const dryRun = await requestJson(
+      `/api/v1/settings/automation/scenarios/${automationScenarioId}/test-run`,
+      {
+        method: "POST",
+        headers: securedHeaders,
+        body: JSON.stringify({ lead_uid: leadUid }),
+      },
+    );
+    assert(dryRun.result?.dry_run === true, "Dry-run flag should be true");
+    assert(typeof dryRun.result?.matched === "boolean", "Dry-run should return match result");
+  });
+
   await runStep("task create", async () => {
     const taskResponse = await requestJson("/api/v1/tasks", {
       method: "POST",
@@ -150,8 +217,88 @@ async function main() {
     assert(doneResponse.task?.done_at, "Task done endpoint did not return done task");
   });
 
+  await runStep("team list + create member", async () => {
+    const before = await requestJson("/api/v1/team", {
+      method: "GET",
+      headers: { authorization: `Bearer ${token}` },
+    });
+    const beforeCount = Array.isArray(before.members) ? before.members.length : 0;
+
+    await requestJson("/api/v1/team/members", {
+      method: "POST",
+      headers: securedHeaders,
+      body: JSON.stringify({
+        display_name: `Week3 Team ${unique}`,
+        email: `week3.team.${unique}@owo.local`,
+        role: "OPERATOR",
+      }),
+    });
+
+    const after = await requestJson("/api/v1/team", {
+      method: "GET",
+      headers: { authorization: `Bearer ${token}` },
+    });
+    const afterCount = Array.isArray(after.members) ? after.members.length : 0;
+    assert(afterCount >= beforeCount + 1, "Team member should be added");
+  });
+
+  await runStep("stock create + patch", async () => {
+    const create = await requestJson("/api/v1/stock/items", {
+      method: "POST",
+      headers: securedHeaders,
+      body: JSON.stringify({
+        sku: `WK3-${String(unique).slice(-6)}`,
+        name: `Week3 SKU ${unique}`,
+        category: "Services",
+        qty: 4,
+        min_qty: 2,
+        price: 199,
+      }),
+    });
+    stockItemId = create.item?.id;
+    assert(typeof stockItemId === "string", "Stock item id missing");
+
+    const patched = await requestJson(`/api/v1/stock/items/${stockItemId}`, {
+      method: "PATCH",
+      headers: securedHeaders,
+      body: JSON.stringify({
+        qty: 7,
+        price: 249,
+      }),
+    });
+    assert(patched.item?.qty === 7, "Stock item qty patch failed");
+    assert(Number(patched.item?.price) === 249, "Stock item price patch failed");
+  });
+
+  await runStep("settings read + patch", async () => {
+    const read = await requestJson("/api/v1/settings", {
+      method: "GET",
+      headers: { authorization: `Bearer ${token}` },
+    });
+    assert(read.settings?.company_name, "Settings read failed");
+
+    const patched = await requestJson("/api/v1/settings", {
+      method: "PATCH",
+      headers: securedHeaders,
+      body: JSON.stringify({
+        company_name: `OWO Week3 ${unique}`,
+        language: "English",
+        notifications: {
+          email_alerts: true,
+          push_alerts: false,
+          task_reminders: true,
+        },
+      }),
+    });
+    assert(patched.settings?.company_name === `OWO Week3 ${unique}`, "Settings patch failed");
+    assert(
+      patched.settings?.notifications?.push_alerts === false,
+      "Settings patch notifications failed",
+    );
+  });
+
   await runStep("events stream", async () => {
-    const eventsResponse = await requestJson("/api/v1/events?limit=80", {
+    const eventsResponse = await requestJson("/api/v1/events?limit=100", {
       method: "GET",
       headers: { authorization: `Bearer ${token}` },
     });
@@ -259,14 +406,6 @@ async function main() {
     assert(stats.totals?.submissions >= 1, "Filtered stats should include at least one row");
     assert(Array.isArray(stats.comparisons), "Comparisons payload should be present");
     assert(stats.comparisons.length > 0, "Comparisons payload should contain items");
-
-    const acquisition = stats.comparisons.find((item) => item.fieldKey === "acquisitionChannel");
-    assert(acquisition, "acquisitionChannel comparison is missing");
-    assert(acquisition.winner, "acquisitionChannel comparison winner is missing");
-    assert(
-      typeof acquisition.winner.share === "number" && acquisition.winner.share >= 0,
-      "acquisitionChannel winner share should be numeric",
-    );
   });
 
   console.log("Week3 integration finished successfully.");

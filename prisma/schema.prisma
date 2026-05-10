@@ -36,6 +36,19 @@ enum EmailOutboxStatus {
   failed
 }
 
+enum FinanceInvoiceStatus {
+  draft
+  sent
+  paid
+  overdue
+}
+
+enum AutomationRunStatus {
+  succeeded
+  failed
+  skipped
+}
+
 model User {
   id              String           @id @default(uuid())
   telegramId      String?          @unique @map("telegram_id")
@@ -49,6 +62,7 @@ model User {
   createdTasks    Task[]           @relation("TaskCreator")
   assignedTasks   Task[]           @relation("TaskAssignee")
   events          BusinessEvent[]  @relation("EventActor")
+  leadNotes       LeadNote[]       @relation("LeadNoteAuthor")
 
   @@map("users")
 }
@@ -68,8 +82,37 @@ model Business {
   events               BusinessEvent[]
   ingestSources        IngestSource[]
   ingestReceipts       IngestReceipt[]
+  financeInvoices      FinanceInvoice[]
+  financePayments      FinancePayment[]
+  settings             BusinessSettings?
+  stockItems           StockItem[]
+  leadNotes            LeadNote[]
+  automationScenarios  AutomationScenario[]
+  automationRuns       AutomationRun[]
 
   @@map("businesses")
+}
+
+model BusinessSettings {
+  id                     String   @id @default(uuid())
+  businessId             String   @unique @map("business_id")
+  companyName            String   @map("company_name")
+  emailAddress           String?  @map("email_address")
+  phoneNumber            String?  @map("phone_number")
+  timezone               String   @default("UTC+1 (Central European Time)")
+  language               String   @default("English")
+  notificationEmailAlerts Boolean @default(true) @map("notification_email_alerts")
+  notificationPushAlerts  Boolean @default(true) @map("notification_push_alerts")
+  notificationTaskReminders Boolean @default(true) @map("notification_task_reminders")
+  securityTwoFactor      Boolean  @default(false) @map("security_two_factor")
+  securitySessionTimeout String   @default("30 minutes") @map("security_session_timeout")
+  appearanceThemeMode    String   @default("Light") @map("appearance_theme_mode")
+  appearanceDensity      String   @default("Comfortable") @map("appearance_density")
+  createdAt              DateTime @default(now()) @map("created_at")
+  updatedAt              DateTime @updatedAt @map("updated_at")
+  business               Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
+
+  @@map("business_settings")
 }
 
 model BusinessMember {
@@ -133,6 +176,9 @@ model Lead {
   tasks            Task[]
   events           BusinessEvent[]
   ingestReceipts   IngestReceipt[]
+  financeInvoices  FinanceInvoice[]
+  leadNotes        LeadNote[]
+  automationRuns   AutomationRun[]
 
   @@unique([businessId, source, sourceExternalKey], map: "leads_business_source_external_key_unique")
   @@index([businessId, dedupeKey])
@@ -140,6 +186,46 @@ model Lead {
   @@index([businessId, statusId])
   @@index([businessId, ownerId])
   @@map("leads")
+}
+
+model AutomationScenario {
+  id          String   @id @default(uuid())
+  businessId  String   @map("business_id")
+  key         String
+  name        String
+  triggerType String   @map("trigger_type")
+  isActive    Boolean  @default(true) @map("is_active")
+  configJson  Json     @map("config_json")
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+  business    Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  runs        AutomationRun[]
+
+  @@unique([businessId, key])
+  @@index([businessId, triggerType, isActive])
+  @@map("automation_scenarios")
+}
+
+model AutomationRun {
+  id         String              @id @default(uuid())
+  businessId String              @map("business_id")
+  scenarioId String              @map("scenario_id")
+  eventType  String              @map("event_type")
+  leadId     String?             @map("lead_id")
+  eventId    String?             @map("event_id")
+  runKey     String              @map("run_key")
+  status     AutomationRunStatus
+  error      String?             @db.Text
+  createdAt  DateTime            @default(now()) @map("created_at")
+  business   Business            @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  scenario   AutomationScenario  @relation(fields: [scenarioId], references: [id], onDelete: Cascade)
+  lead       Lead?               @relation(fields: [leadId], references: [id], onDelete: SetNull)
+
+  @@unique([scenarioId, runKey])
+  @@index([businessId, createdAt])
+  @@index([scenarioId, createdAt])
+  @@index([leadId])
+  @@map("automation_runs")
 }
 
 model Task {
@@ -270,4 +356,86 @@ model EmailOutbox {
   @@index([submissionId])
   @@index([status, createdAt])
   @@map("email_outbox")
+}
+
+model FinanceInvoice {
+  id           String               @id @default(uuid())
+  businessId   String               @map("business_id")
+  leadId       String?              @map("lead_id")
+  customerName String?              @map("customer_name")
+  number       String
+  currency     String               @default("USD")
+  issueDate    DateTime             @map("issue_date")
+  dueDate      DateTime             @map("due_date")
+  status       FinanceInvoiceStatus @default(draft)
+  subtotal     Decimal              @db.Decimal(12, 2)
+  tax          Decimal              @default(0) @db.Decimal(12, 2)
+  total        Decimal              @db.Decimal(12, 2)
+  notes        String?              @db.Text
+  createdAt    DateTime             @default(now()) @map("created_at")
+  updatedAt    DateTime             @updatedAt @map("updated_at")
+  business     Business             @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  lead         Lead?                @relation(fields: [leadId], references: [id], onDelete: SetNull)
+  payments     FinancePayment[]
+
+  @@unique([businessId, number])
+  @@index([businessId, status])
+  @@index([businessId, dueDate])
+  @@index([leadId])
+  @@map("finance_invoices")
+}
+
+model FinancePayment {
+  id         String         @id @default(uuid())
+  businessId String         @map("business_id")
+  invoiceId  String         @map("invoice_id")
+  amount     Decimal        @db.Decimal(12, 2)
+  currency   String         @default("USD")
+  paidAt     DateTime       @map("paid_at")
+  method     String
+  reference  String?
+  notes      String?        @db.Text
+  createdAt  DateTime       @default(now()) @map("created_at")
+  updatedAt  DateTime       @updatedAt @map("updated_at")
+  business   Business       @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  invoice    FinanceInvoice @relation(fields: [invoiceId], references: [id], onDelete: Cascade)
+
+  @@index([businessId, paidAt])
+  @@index([invoiceId])
+  @@map("finance_payments")
+}
+
+model StockItem {
+  id         String   @id @default(uuid())
+  businessId String   @map("business_id")
+  sku        String
+  name       String
+  category   String
+  qty        Int      @default(0)
+  minQty     Int      @default(1) @map("min_qty")
+  price      Decimal  @db.Decimal(12, 2)
+  createdAt  DateTime @default(now()) @map("created_at")
+  updatedAt  DateTime @updatedAt @map("updated_at")
+  business   Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
+
+  @@unique([businessId, sku])
+  @@index([businessId, category])
+  @@map("stock_items")
+}
+
+model LeadNote {
+  id           String   @id @default(uuid())
+  businessId   String   @map("business_id")
+  leadId       String   @map("lead_id")
+  authorUserId String?  @map("author_user_id")
+  text         String   @db.Text
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+  business     Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  lead         Lead     @relation(fields: [leadId], references: [id], onDelete: Cascade)
+  authorUser   User?    @relation("LeadNoteAuthor", fields: [authorUserId], references: [id], onDelete: SetNull)
+
+  @@index([businessId, leadId, createdAt])
+  @@index([leadId])
+  @@map("lead_notes")
 }

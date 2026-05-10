@@ -1,18 +1,5 @@
-import { AppShell } from "@/components/product/AppShell";
-import { resolveShellBusiness } from "@/lib/shell-context";
+import { ManusCrmShell } from "@/components/manus-crm/ManusCrmShell";
 
-export const dynamic = "force-dynamic";
-
-export default async function ProductLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  const business = await resolveShellBusiness();
-
-  return (
-    <AppShell businessName={business?.name ?? "No business connected"}>
-      {children}
-    </AppShell>
-  );
+export default function AppLayout({ children }: { children: React.ReactNode }) {
+  return <ManusCrmShell>{children}</ManusCrmShell>;
 }

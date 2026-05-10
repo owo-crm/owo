@@ -1,5 +1,5 @@
-import { DemoOne } from "@/components/ui/demo";
+import { ManusLanding } from "@/components/manus/ManusLanding";
 
-export default function Home() {
-  return <DemoOne />;
+export default function HomePage() {
+  return <ManusLanding />;
 }

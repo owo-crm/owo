@@ -1,5 +1,5 @@
-import { redirect } from "next/navigation";
+import { TasksPage } from "@/components/manus-crm/TasksPage";
 
-export default function AppTasksRedirectPage() {
-  redirect("/app?tab=tasks");
+export default function AppTasksRoute() {
+  return <TasksPage />;
 }

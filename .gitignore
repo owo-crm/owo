@@ -48,5 +48,11 @@ next-env.d.ts
 # local assistant/tool metadata
 .zencoder/
 .zenflow/
+.serena/
 
 /src/generated/prisma
+
+# local temp artifacts
+.tmp-*.log
+*.canvas
+*.rar

@@ -11,6 +11,7 @@ type PatchTaskBody = {
   note?: string | null;
   due_at?: string | null;
   assignee_id?: string | null;
+  lead_uid?: string | null;
 };
 
 export async function PATCH(
@@ -25,17 +26,40 @@ export async function PATCH(
 
   try {
     const body = (await request.json()) as PatchTaskBody;
+    let leadId: string | null | undefined;
+    if (body.lead_uid !== undefined) {
+      const leadUid = body.lead_uid?.trim();
+      if (!leadUid) {
+        leadId = null;
+      } else {
+        const lead = await prisma.lead.findFirst({
+          where: {
+            uid: leadUid,
+            businessId: auth.session.businessId,
+            archivedAt: null,
+          },
+          select: { id: true },
+        });
+        if (!lead) return fail("LEAD_NOT_FOUND", 404);
+        leadId = lead.id;
+      }
+    }
+
     const task = await patchTask(taskId, auth.session.businessId, auth.session.userId, {
       title: body.title?.trim(),
       note: body.note,
       dueAt: body.due_at === null ? null : body.due_at ? new Date(body.due_at) : undefined,
       assigneeId: body.assignee_id,
+      leadId,
     });
 
     return ok({ task });
   } catch (error) {
     if (error instanceof Error && error.message === "TASK_NOT_FOUND") {
       return fail("TASK_NOT_FOUND", 404);
+    }
+    if (error instanceof Error && error.message === "LEAD_NOT_FOUND") {
+      return fail("LEAD_NOT_FOUND", 404);
     }
     console.error("Failed to patch task", error);
     return fail("TASK_PATCH_FAILED", 500);
