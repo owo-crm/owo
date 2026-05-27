@@ -1,0 +1,38 @@
+
+> @workdish/web@0.1.0 dev
+> vite --host 0.0.0.0 --port 5173
+
+
+  [32m[1mVITE[22m v5.4.21[39m  [2mready in [0m[1m312[22m[2m[0m ms[22m
+
+  [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m5173[22m/[39m
+  [32m➜[39m  [1mNetwork[22m: [36mhttp://192.168.56.1:[1m5173[22m/[39m
+  [32m➜[39m  [1mNetwork[22m: [36mhttp://192.168.100.27:[1m5173[22m/[39m
+[2m07:06:06[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/lib/i18n.tsx, /src/styles.css[22m
+[2m07:06:07[22m [36m[1m[vite][22m[39m [33mhmr invalidate [39m[2m/src/lib/i18n.tsx[22m Could not Fast Refresh ("useLanguage" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+[2m07:06:07[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/lib/i18n.tsx[22m
+[2m07:06:16[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/layout/bottom-nav.tsx, /src/styles.css[22m
+[2m07:06:35[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/layout/app-shell.tsx, /src/styles.css[22m
+[2m07:06:52[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[2m07:07:38[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/home-page.tsx, /src/styles.css[22m
+[2m07:09:07[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m07:09:38[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/profile-page.tsx, /src/styles.css[22m
+[2m07:09:57[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles.css, /src/components/layout/bottom-nav.tsx, /src/components/layout/app-shell.tsx[22m
+[2m07:10:37[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/login-page.tsx, /src/styles.css[22m
+[2m07:10:43[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/dashboard-page.tsx, /src/styles.css[22m
+[2m07:11:06[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/login-page.tsx, /src/styles.css[22m
+[2m07:33:30[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/lib/types.ts[22m
+[2m07:33:43[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/lib/auth.tsx, /src/styles.css, /src/pages/dashboard-page.tsx, /src/pages/team-page.tsx, /src/pages/profile-page.tsx, /src/pages/schedule-page.tsx, /src/pages/home-page.tsx, /src/pages/tasks-page.tsx[22m
+[2m07:33:43[22m [36m[1m[vite][22m[39m [33mhmr invalidate [39m[2m/src/lib/auth.tsx[22m Could not Fast Refresh ("useAuth" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+[2m07:33:43[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/lib/auth.tsx[22m
+[2m07:34:29[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m07:37:14[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx[22m
+[2m07:37:51[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/lib/i18n.tsx, /src/styles.css[22m
+[2m07:37:51[22m [36m[1m[vite][22m[39m [33mhmr invalidate [39m[2m/src/lib/i18n.tsx[22m Could not Fast Refresh ("useLanguage" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+[2m07:37:51[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/lib/i18n.tsx[22m
+[2m07:38:01[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/profile-page.tsx, /src/styles.css[22m
+[2m07:38:16[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/dashboard-page.tsx, /src/styles.css[22m
+[2m07:39:08[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/dashboard-page.tsx[22m
+[2m07:41:46[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m07:50:21[22m [36m[1m[vite][22m[39m [32m.env.local changed, restarting server...[39m
+[2m07:50:21[22m [36m[1m[vite][22m[39m server restarted.

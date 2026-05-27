@@ -1,0 +1,67 @@
+
+> @workdish/web@0.1.0 dev
+> vite --host 0.0.0.0 --port 5173
+
+
+  [32m[1mVITE[22m v5.4.21[39m  [2mready in [0m[1m404[22m[2m[0m ms[22m
+
+  [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m5173[22m/[39m
+  [32m➜[39m  [1mNetwork[22m: [36mhttp://192.168.56.1:[1m5173[22m/[39m
+  [32m➜[39m  [1mNetwork[22m: [36mhttp://10.41.164.30:[1m5173[22m/[39m
+[2m[32m  ➜[39m[22m[2m  press [22m[1mh + enter[22m[2m to show help[22m
+[2m12:47:18[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles.css[22m
+[2m12:47:33[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles.css[22m
+[2m12:47:38[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ui/dashboard-with-collapsible-sidebar.tsx, /src/styles.css[22m
+[2m12:48:34[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ui/dashboard-with-collapsible-sidebar.tsx[22m
+[2m12:50:05[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/home-page.tsx, /src/styles.css[22m
+[2m12:50:45[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m12:57:07[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ui/button.tsx, /src/styles.css[22m
+[2m12:57:08[22m [36m[1m[vite][22m[39m [33mhmr invalidate [39m[2m/src/components/ui/button.tsx[22m Could not Fast Refresh ("buttonVariants" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+[2m12:57:08[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/home-page.tsx, /src/styles.css, /src/pages/login-page.tsx, /src/pages/profile-page.tsx, /src/pages/team-page.tsx, /src/pages/tasks-page.tsx, /src/pages/dashboard-page.tsx, /src/pages/schedule-page.tsx[22m
+[2m13:03:03[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/layout/bottom-nav.tsx, /src/styles.css[22m
+[2m13:03:03[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ui/card.tsx, /src/styles.css[22m
+[2m13:03:03[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ui/badge.tsx, /src/styles.css[22m
+[2m13:03:03[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ui/input.tsx, /src/styles.css[22m
+[2m13:03:03[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ui/select.tsx, /src/styles.css[22m
+[2m13:03:03[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ui/textarea.tsx, /src/styles.css[22m
+[2m13:03:35[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ui/dashboard-with-collapsible-sidebar.tsx, /src/styles.css[22m
+[2m13:04:26[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/login-page.tsx, /src/styles.css[22m
+[2m13:04:43[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/home-page.tsx, /src/styles.css[22m
+[2m13:04:43[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/dashboard-page.tsx, /src/styles.css[22m
+[2m13:04:43[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/tasks-page.tsx, /src/styles.css[22m
+[2m13:04:43[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/team-page.tsx, /src/styles.css[22m
+[2m13:04:43[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/profile-page.tsx, /src/styles.css[22m
+[2m13:05:47[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m13:06:19[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/dashboard-page.tsx, /src/styles.css[22m
+[2m13:06:19[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/dashboard-page.tsx, /src/styles.css[22m
+[2m13:06:20[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[2m13:06:20[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/profile-page.tsx, /src/styles.css[22m
+[2m13:06:20[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m13:06:20[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/tasks-page.tsx, /src/styles.css[22m
+[2m13:06:20[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/team-page.tsx, /src/styles.css[22m
+[2m13:11:41[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ui/dashboard-with-collapsible-sidebar.tsx, /src/styles.css[22m
+[2m13:11:41[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/login-page.tsx, /src/styles.css[22m
+[2m13:32:57[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/layout/bottom-nav.tsx, /src/styles.css[22m
+[2m13:32:57[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ui/dashboard-with-collapsible-sidebar.tsx, /src/styles.css[22m
+[2m13:32:57[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/login-page.tsx, /src/styles.css[22m
+[2m13:36:41[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ui/dashboard-with-collapsible-sidebar.tsx, /src/styles.css[22m
+[2m13:37:01[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ui/dashboard-with-collapsible-sidebar.tsx, /src/styles.css[22m
+[2m13:40:23[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ui/dashboard-with-collapsible-sidebar.tsx, /src/styles.css[22m
+[2m13:40:23[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/login-page.tsx, /src/styles.css[22m
+[2m13:42:08[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ui/dashboard-with-collapsible-sidebar.tsx, /src/styles.css[22m
+[2m13:42:08[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/login-page.tsx, /src/styles.css[22m
+[2m13:43:14[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ui/dashboard-with-collapsible-sidebar.tsx, /src/styles.css[22m
+[2m13:43:14[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/login-page.tsx, /src/styles.css[22m
+[2m13:43:41[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ui/dashboard-with-collapsible-sidebar.tsx, /src/styles.css[22m
+[2m13:43:41[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/login-page.tsx, /src/styles.css[22m
+[2m13:46:50[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ui/select.tsx, /src/styles.css[22m
+[2m13:50:38[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ui/card.tsx, /src/styles.css[22m
+[2m13:50:38[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ui/dashboard-with-collapsible-sidebar.tsx, /src/styles.css[22m
+[2m13:50:38[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/login-page.tsx, /src/styles.css[22m
+[2m13:50:38[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ui/select.tsx[22m
+[2m13:52:01[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ui/select.tsx, /src/styles.css[22m
+[2m13:52:01[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m13:54:40[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ui/select.tsx, /src/styles.css[22m
+[2m13:58:44[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ui/select.tsx, /src/styles.css[22m
+[2m14:02:35[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/tasks-page.tsx, /src/styles.css[22m
+[2m14:03:06[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m

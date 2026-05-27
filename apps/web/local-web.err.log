@@ -1,0 +1,362 @@
+[2m21:53:19[22m [31m[1m[vite][22m[39m [31mInternal server error: C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\apps\web\src\pages\login-page.tsx: Expected corresponding JSX closing tag for <div>. (521:8)
+
+[0m [90m 519 |[31m             [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+ [90m 520 |[31m           [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+[31m[1m>[22m[31m[90m 521 |[31m         [33m<[31m[33m/[31m[33mmotion[31m[33m.[31msection[33m>[31m
+ [90m     |[31m         [31m[1m^[22m[31m
+ [90m 522 |[31m
+ [90m 523 |[31m         [33m<[31m[33mmotion[31m[33m.[31msection initial[33m=[31m{{ opacity[33m:[31m [35m0[31m[33m,[31m y[33m:[31m [35m18[31m }} animate[33m=[31m{{ opacity[33m:[31m [35m1[31m[33m,[31m y[33m:[31m [35m0[31m }} transition[33m=[31m{{ duration[33m:[31m [35m0.24[31m[33m,[31m delay[33m:[31m [35m0.06[31m }} className[33m=[31m[32m"order-1 flex items-start xl:order-2"[31m[33m>[31m
+ [90m 524 |[31m             [33m<[31m[33mCard[31m className[33m=[31m[32m"w-full p-2 border border-[rgba(148,163,184,0.16)] shadow-[0_24px_55px_rgba(15,23,42,0.06)] bg-white/98 rounded-[1.75rem] transition-all duration-300 hover:shadow-[0_30px_70px_rgba(15,23,42,0.09)]"[31m[33m>[31m[0m[39m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mC:/Users/kozlo/Documents/antigravity/brave-bose/workdish — kopia/apps/web/src/pages/login-page.tsx[39m:521:8
+[33m  519|              </div>
+  520|            </div>
+  521|          </motion.section>
+     |          ^
+  522|  
+  523|          <motion.section initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.24, delay: 0.06 }} className="order-1 flex items-start xl:order-2">[39m
+      at constructor (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:365:19)
+      at TypeScriptParserMixin.raise (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:6599:19)
+      at TypeScriptParserMixin.jsxParseElementAt (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:4727:16)
+      at TypeScriptParserMixin.jsxParseElementAt (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:4698:32)
+      at TypeScriptParserMixin.jsxParseElementAt (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:4698:32)
+      at TypeScriptParserMixin.jsxParseElementAt (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:4698:32)
+      at TypeScriptParserMixin.jsxParseElement (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:4749:17)
+      at TypeScriptParserMixin.parseExprAtom (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:4759:19)
+      at TypeScriptParserMixin.parseExprSubscripts (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:11081:23)
+      at TypeScriptParserMixin.parseUpdate (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:11066:21)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:11046:23)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:9837:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:10899:61)
+      at TypeScriptParserMixin.parseExprOps (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:10904:23)
+      at TypeScriptParserMixin.parseMaybeConditional (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:10881:23)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:10831:21)
+      at C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:9775:39
+      at TypeScriptParserMixin.tryParse (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:6907:20)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:9775:18)
+      at C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:10800:39
+      at TypeScriptParserMixin.allowInAnd (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:12426:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:10800:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:12493:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:11675:28)
+      at TypeScriptParserMixin.parseExprAtom (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:11331:23)
+      at TypeScriptParserMixin.parseExprAtom (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:4764:20)
+      at TypeScriptParserMixin.parseExprSubscripts (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:11081:23)
+      at TypeScriptParserMixin.parseUpdate (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:11066:21)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:11046:23)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:9837:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:10899:61)
+      at TypeScriptParserMixin.parseExprOps (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:10904:23)
+      at TypeScriptParserMixin.parseMaybeConditional (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:10881:23)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:10831:21)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:9786:20)
+      at TypeScriptParserMixin.parseExpressionBase (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:10784:23)
+      at C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:10780:39
+      at TypeScriptParserMixin.allowInAnd (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:12421:16)
+      at TypeScriptParserMixin.parseExpression (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:10780:17)
+      at TypeScriptParserMixin.parseReturnStatement (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:13142:28)
+      at TypeScriptParserMixin.parseStatementContent (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:12798:21)
+      at TypeScriptParserMixin.parseStatementContent (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:9508:18)
+      at TypeScriptParserMixin.parseStatementLike (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:12767:17)
+      at TypeScriptParserMixin.parseStatementListItem (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:12747:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:13316:61)
+      at TypeScriptParserMixin.parseBlockBody (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:13309:10)
+      at TypeScriptParserMixin.parseBlock (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:13297:10)
+      at TypeScriptParserMixin.parseFunctionBody (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:12100:24)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:12086:10)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:9172:18)
+[2m21:53:19[22m [31m[1m[vite][22m[39m [31mInternal server error: C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\apps\web\src\pages\login-page.tsx: Expected corresponding JSX closing tag for <div>. (521:8)
+
+[0m [90m 519 |[31m             [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+ [90m 520 |[31m           [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+[31m[1m>[22m[31m[90m 521 |[31m         [33m<[31m[33m/[31m[33mmotion[31m[33m.[31msection[33m>[31m
+ [90m     |[31m         [31m[1m^[22m[31m
+ [90m 522 |[31m
+ [90m 523 |[31m         [33m<[31m[33mmotion[31m[33m.[31msection initial[33m=[31m{{ opacity[33m:[31m [35m0[31m[33m,[31m y[33m:[31m [35m18[31m }} animate[33m=[31m{{ opacity[33m:[31m [35m1[31m[33m,[31m y[33m:[31m [35m0[31m }} transition[33m=[31m{{ duration[33m:[31m [35m0.24[31m[33m,[31m delay[33m:[31m [35m0.06[31m }} className[33m=[31m[32m"order-1 flex items-start xl:order-2"[31m[33m>[31m
+ [90m 524 |[31m             [33m<[31m[33mCard[31m className[33m=[31m[32m"w-full p-2 border border-[rgba(148,163,184,0.16)] shadow-[0_24px_55px_rgba(15,23,42,0.06)] bg-white/98 rounded-[1.75rem] transition-all duration-300 hover:shadow-[0_30px_70px_rgba(15,23,42,0.09)]"[31m[33m>[31m[0m[39m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mC:/Users/kozlo/Documents/antigravity/brave-bose/workdish — kopia/apps/web/src/pages/login-page.tsx[39m:521:8
+[33m  519|              </div>
+  520|            </div>
+  521|          </motion.section>
+     |          ^
+  522|  
+  523|          <motion.section initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.24, delay: 0.06 }} className="order-1 flex items-start xl:order-2">[39m
+      at constructor (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:365:19)
+      at TypeScriptParserMixin.raise (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:6599:19)
+      at TypeScriptParserMixin.jsxParseElementAt (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:4727:16)
+      at TypeScriptParserMixin.jsxParseElementAt (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:4698:32)
+      at TypeScriptParserMixin.jsxParseElementAt (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:4698:32)
+      at TypeScriptParserMixin.jsxParseElementAt (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:4698:32)
+      at TypeScriptParserMixin.jsxParseElement (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:4749:17)
+      at TypeScriptParserMixin.parseExprAtom (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:4759:19)
+      at TypeScriptParserMixin.parseExprSubscripts (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:11081:23)
+      at TypeScriptParserMixin.parseUpdate (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:11066:21)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:11046:23)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:9837:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:10899:61)
+      at TypeScriptParserMixin.parseExprOps (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:10904:23)
+      at TypeScriptParserMixin.parseMaybeConditional (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:10881:23)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:10831:21)
+      at C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:9775:39
+      at TypeScriptParserMixin.tryParse (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:6907:20)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:9775:18)
+      at C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:10800:39
+      at TypeScriptParserMixin.allowInAnd (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:12426:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:10800:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:12493:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:11675:28)
+      at TypeScriptParserMixin.parseExprAtom (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:11331:23)
+      at TypeScriptParserMixin.parseExprAtom (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:4764:20)
+      at TypeScriptParserMixin.parseExprSubscripts (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:11081:23)
+      at TypeScriptParserMixin.parseUpdate (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:11066:21)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:11046:23)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:9837:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:10899:61)
+      at TypeScriptParserMixin.parseExprOps (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:10904:23)
+      at TypeScriptParserMixin.parseMaybeConditional (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:10881:23)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:10831:21)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:9786:20)
+      at TypeScriptParserMixin.parseExpressionBase (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:10784:23)
+      at C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:10780:39
+      at TypeScriptParserMixin.allowInAnd (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:12421:16)
+      at TypeScriptParserMixin.parseExpression (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:10780:17)
+      at TypeScriptParserMixin.parseReturnStatement (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:13142:28)
+      at TypeScriptParserMixin.parseStatementContent (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:12798:21)
+      at TypeScriptParserMixin.parseStatementContent (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:9508:18)
+      at TypeScriptParserMixin.parseStatementLike (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:12767:17)
+      at TypeScriptParserMixin.parseStatementListItem (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:12747:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:13316:61)
+      at TypeScriptParserMixin.parseBlockBody (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:13309:10)
+      at TypeScriptParserMixin.parseBlock (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:13297:10)
+      at TypeScriptParserMixin.parseFunctionBody (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:12100:24)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:12086:10)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\node_modules\@babel\parser\lib\index.js:9172:18)
+[2m22:39:42[22m [33m[1m[vite][22m[39m [33mwarning: [33mDuplicate key "profile.perm_manager_notes" in object literal[33m
+990|      "profile.perm_manager_team": "Managers can access Team",
+991|      "profile.perm_manager_business": "Managers can manage business settings",
+992|      "profile.perm_manager_notes": "Managers can access Notes & Documents",
+   |      ^
+993|      "profile.perm_manager_inventory": "Managers can access Inventory",
+994|      "profile.profile_updated": "Profile updated",
+[39m
+  Plugin: [35mvite:esbuild[39m
+  File: [36mC:/Users/kozlo/Documents/antigravity/brave-bose/workdish — kopia/apps/web/src/lib/i18n.tsx[39m
+[2m22:39:56[22m [33m[1m[vite][22m[39m [33mwarning: [33mDuplicate key "nav.notes" in object literal[33m
+366|      "nav.schedule": "Grafik",
+367|      "nav.tasks": "Zadania",
+368|      "nav.notes": "Notatki i dokumenty",
+   |      ^
+369|      "nav.inventory": "Inwentarz",
+370|      "nav.team": "Zespół",
+[39m
+  Plugin: [35mvite:esbuild[39m
+  File: [36mC:/Users/kozlo/Documents/antigravity/brave-bose/workdish — kopia/apps/web/src/lib/i18n.tsx[39m
+[2m22:39:56[22m [33m[1m[vite][22m[39m [33mwarning: [33mDuplicate key "notes.title" in object literal[33m
+608|      "inventory.title": "Inwentarz",
+609|      "inventory.subtitle": "Podgląd sprzętu, stanu i serwisowania.",
+610|      "notes.title": "Notatki i dokumenty",
+   |      ^
+611|      "notes.subtitle": "Preview-only workspace dla wewnętrznych notatek i kart dokumentów."
+612|    },
+[39m
+  Plugin: [35mvite:esbuild[39m
+  File: [36mC:/Users/kozlo/Documents/antigravity/brave-bose/workdish — kopia/apps/web/src/lib/i18n.tsx[39m
+[2m22:39:56[22m [33m[1m[vite][22m[39m [33mwarning: [33mDuplicate key "notes.subtitle" in object literal[33m
+609|      "inventory.subtitle": "Podgląd sprzętu, stanu i serwisowania.",
+610|      "notes.title": "Notatki i dokumenty",
+611|      "notes.subtitle": "Preview-only workspace dla wewnętrznych notatek i kart dokumentów."
+   |      ^
+612|    },
+613|    ru: {
+[39m
+  Plugin: [35mvite:esbuild[39m
+  File: [36mC:/Users/kozlo/Documents/antigravity/brave-bose/workdish — kopia/apps/web/src/lib/i18n.tsx[39m
+[2m22:39:56[22m [33m[1m[vite][22m[39m [33mwarning: [33mDuplicate key "profile.perm_manager_notes" in object literal[33m
+996|      "profile.perm_manager_team": "Managers can access Team",
+997|      "profile.perm_manager_business": "Managers can manage business settings",
+998|      "profile.perm_manager_notes": "Managers can access Notes & Documents",
+   |      ^
+999|      "profile.perm_manager_inventory": "Managers can access Inventory",
+1000|      "profile.profile_updated": "Profile updated",
+[39m
+  Plugin: [35mvite:esbuild[39m
+  File: [36mC:/Users/kozlo/Documents/antigravity/brave-bose/workdish — kopia/apps/web/src/lib/i18n.tsx[39m
+[2m22:40:02[22m [33m[1m[vite][22m[39m [33mwarning: [33mDuplicate key "nav.notes" in object literal[33m
+366|      "nav.schedule": "Grafik",
+367|      "nav.tasks": "Zadania",
+368|      "nav.notes": "Notatki i dokumenty",
+   |      ^
+369|      "nav.inventory": "Inwentarz",
+370|      "nav.team": "Zespół",
+[39m
+  Plugin: [35mvite:esbuild[39m
+  File: [36mC:/Users/kozlo/Documents/antigravity/brave-bose/workdish — kopia/apps/web/src/lib/i18n.tsx[39m
+[2m22:40:02[22m [33m[1m[vite][22m[39m [33mwarning: [33mDuplicate key "notes.title" in object literal[33m
+608|      "inventory.title": "Inwentarz",
+609|      "inventory.subtitle": "Podgląd sprzętu, stanu i serwisowania.",
+610|      "notes.title": "Notatki i dokumenty",
+   |      ^
+611|      "notes.subtitle": "Preview-only workspace dla wewnętrznych notatek i kart dokumentów."
+612|    },
+[39m
+  Plugin: [35mvite:esbuild[39m
+  File: [36mC:/Users/kozlo/Documents/antigravity/brave-bose/workdish — kopia/apps/web/src/lib/i18n.tsx[39m
+[2m22:40:02[22m [33m[1m[vite][22m[39m [33mwarning: [33mDuplicate key "notes.subtitle" in object literal[33m
+609|      "inventory.subtitle": "Podgląd sprzętu, stanu i serwisowania.",
+610|      "notes.title": "Notatki i dokumenty",
+611|      "notes.subtitle": "Preview-only workspace dla wewnętrznych notatek i kart dokumentów."
+   |      ^
+612|    },
+613|    ru: {
+[39m
+  Plugin: [35mvite:esbuild[39m
+  File: [36mC:/Users/kozlo/Documents/antigravity/brave-bose/workdish — kopia/apps/web/src/lib/i18n.tsx[39m
+[2m22:40:02[22m [33m[1m[vite][22m[39m [33mwarning: [33mDuplicate key "nav.notes" in object literal[33m
+647|      "nav.schedule": "График",
+648|      "nav.tasks": "Задачи",
+649|      "nav.notes": "Заметки и документы",
+   |      ^
+650|      "nav.inventory": "Инвентарь",
+651|      "nav.team": "Команда",
+[39m
+  Plugin: [35mvite:esbuild[39m
+  File: [36mC:/Users/kozlo/Documents/antigravity/brave-bose/workdish — kopia/apps/web/src/lib/i18n.tsx[39m
+[2m22:40:02[22m [33m[1m[vite][22m[39m [33mwarning: [33mDuplicate key "notes.title" in object literal[33m
+889|      "inventory.title": "Инвентарь",
+890|      "inventory.subtitle": "Превью оборудования, состояния и сервисного обслуживания.",
+891|      "notes.title": "Заметки и документы",
+   |      ^
+892|      "notes.subtitle": "Preview-only workspace для внутренних заметок и карточек документов."
+893|    }
+[39m
+  Plugin: [35mvite:esbuild[39m
+  File: [36mC:/Users/kozlo/Documents/antigravity/brave-bose/workdish — kopia/apps/web/src/lib/i18n.tsx[39m
+[2m22:40:02[22m [33m[1m[vite][22m[39m [33mwarning: [33mDuplicate key "notes.subtitle" in object literal[33m
+890|      "inventory.subtitle": "Превью оборудования, состояния и сервисного обслуживания.",
+891|      "notes.title": "Заметки и документы",
+892|      "notes.subtitle": "Preview-only workspace для внутренних заметок и карточек документов."
+   |      ^
+893|    }
+894|  };
+[39m
+  Plugin: [35mvite:esbuild[39m
+  File: [36mC:/Users/kozlo/Documents/antigravity/brave-bose/workdish — kopia/apps/web/src/lib/i18n.tsx[39m
+[2m22:40:02[22m [33m[1m[vite][22m[39m [33mwarning: [33mDuplicate key "profile.perm_manager_notes" in object literal[33m
+1002|      "profile.perm_manager_team": "Managers can access Team",
+1003|      "profile.perm_manager_business": "Managers can manage business settings",
+1004|      "profile.perm_manager_notes": "Managers can access Notes & Documents",
+   |      ^
+1005|      "profile.perm_manager_inventory": "Managers can access Inventory",
+1006|      "profile.profile_updated": "Profile updated",
+[39m
+  Plugin: [35mvite:esbuild[39m
+  File: [36mC:/Users/kozlo/Documents/antigravity/brave-bose/workdish — kopia/apps/web/src/lib/i18n.tsx[39m
+[2m22:43:56[22m [33m[1m[vite][22m[39m [33mwarning: [33mDuplicate key "nav.notes" in object literal[33m
+641|      "nav.schedule": "График",
+642|      "nav.tasks": "Задачи",
+643|      "nav.notes": "Заметки и документы",
+   |      ^
+644|      "nav.inventory": "Инвентарь",
+645|      "nav.team": "Команда",
+[39m
+  Plugin: [35mvite:esbuild[39m
+  File: [36mC:/Users/kozlo/Documents/antigravity/brave-bose/workdish — kopia/apps/web/src/lib/i18n.tsx[39m
+[2m22:43:56[22m [33m[1m[vite][22m[39m [33mwarning: [33mDuplicate key "notes.title" in object literal[33m
+883|      "inventory.title": "Инвентарь",
+884|      "inventory.subtitle": "Превью оборудования, состояния и сервисного обслуживания.",
+885|      "notes.title": "Заметки и документы",
+   |      ^
+886|      "notes.subtitle": "Preview-only workspace для внутренних заметок и карточек документов."
+887|    }
+[39m
+  Plugin: [35mvite:esbuild[39m
+  File: [36mC:/Users/kozlo/Documents/antigravity/brave-bose/workdish — kopia/apps/web/src/lib/i18n.tsx[39m
+[2m22:43:56[22m [33m[1m[vite][22m[39m [33mwarning: [33mDuplicate key "notes.subtitle" in object literal[33m
+884|      "inventory.subtitle": "Превью оборудования, состояния и сервисного обслуживания.",
+885|      "notes.title": "Заметки и документы",
+886|      "notes.subtitle": "Preview-only workspace для внутренних заметок и карточек документов."
+   |      ^
+887|    }
+888|  };
+[39m
+  Plugin: [35mvite:esbuild[39m
+  File: [36mC:/Users/kozlo/Documents/antigravity/brave-bose/workdish — kopia/apps/web/src/lib/i18n.tsx[39m
+[2m22:43:56[22m [33m[1m[vite][22m[39m [33mwarning: [33mDuplicate key "profile.perm_manager_notes" in object literal[33m
+996|      "profile.perm_manager_team": "Managers can access Team",
+997|      "profile.perm_manager_business": "Managers can manage business settings",
+998|      "profile.perm_manager_notes": "Managers can access Notes & Documents",
+   |      ^
+999|      "profile.perm_manager_inventory": "Managers can access Inventory",
+1000|      "profile.profile_updated": "Profile updated",
+[39m
+  Plugin: [35mvite:esbuild[39m
+  File: [36mC:/Users/kozlo/Documents/antigravity/brave-bose/workdish — kopia/apps/web/src/lib/i18n.tsx[39m
+[2m22:44:45[22m [33m[1m[vite][22m[39m [33mwarning: [33mDuplicate key "notes.title" in object literal[33m
+882|      "inventory.title": "Инвентарь",
+883|      "inventory.subtitle": "Превью оборудования, состояния и сервисного обслуживания.",
+884|      "notes.title": "Заметки и документы",
+   |      ^
+885|      "notes.subtitle": "Preview-only workspace для внутренних заметок и карточек документов."
+886|    }
+[39m
+  Plugin: [35mvite:esbuild[39m
+  File: [36mC:/Users/kozlo/Documents/antigravity/brave-bose/workdish — kopia/apps/web/src/lib/i18n.tsx[39m
+[2m22:44:45[22m [33m[1m[vite][22m[39m [33mwarning: [33mDuplicate key "notes.subtitle" in object literal[33m
+883|      "inventory.subtitle": "Превью оборудования, состояния и сервисного обслуживания.",
+884|      "notes.title": "Заметки и документы",
+885|      "notes.subtitle": "Preview-only workspace для внутренних заметок и карточек документов."
+   |      ^
+886|    }
+887|  };
+[39m
+  Plugin: [35mvite:esbuild[39m
+  File: [36mC:/Users/kozlo/Documents/antigravity/brave-bose/workdish — kopia/apps/web/src/lib/i18n.tsx[39m
+[2m22:44:45[22m [33m[1m[vite][22m[39m [33mwarning: [33mDuplicate key "profile.perm_manager_notes" in object literal[33m
+995|      "profile.perm_manager_team": "Managers can access Team",
+996|      "profile.perm_manager_business": "Managers can manage business settings",
+997|      "profile.perm_manager_notes": "Managers can access Notes & Documents",
+   |      ^
+998|      "profile.perm_manager_inventory": "Managers can access Inventory",
+999|      "profile.profile_updated": "Profile updated",
+[39m
+  Plugin: [35mvite:esbuild[39m
+  File: [36mC:/Users/kozlo/Documents/antigravity/brave-bose/workdish — kopia/apps/web/src/lib/i18n.tsx[39m
+[2m22:44:51[22m [33m[1m[vite][22m[39m [33mwarning: [33mDuplicate key "notes.subtitle" in object literal[33m
+882|      "inventory.subtitle": "Превью оборудования, состояния и сервисного обслуживания.",
+883|      "notes.title": "Заметки и документы",
+884|      "notes.subtitle": "Preview-only workspace для внутренних заметок и карточек документов."
+   |      ^
+885|    }
+886|  };
+[39m
+  Plugin: [35mvite:esbuild[39m
+  File: [36mC:/Users/kozlo/Documents/antigravity/brave-bose/workdish — kopia/apps/web/src/lib/i18n.tsx[39m
+[2m22:44:51[22m [33m[1m[vite][22m[39m [33mwarning: [33mDuplicate key "profile.perm_manager_notes" in object literal[33m
+994|      "profile.perm_manager_team": "Managers can access Team",
+995|      "profile.perm_manager_business": "Managers can manage business settings",
+996|      "profile.perm_manager_notes": "Managers can access Notes & Documents",
+   |      ^
+997|      "profile.perm_manager_inventory": "Managers can access Inventory",
+998|      "profile.profile_updated": "Profile updated",
+[39m
+  Plugin: [35mvite:esbuild[39m
+  File: [36mC:/Users/kozlo/Documents/antigravity/brave-bose/workdish — kopia/apps/web/src/lib/i18n.tsx[39m
+[2m22:45:00[22m [33m[1m[vite][22m[39m [33mwarning: [33mDuplicate key "profile.perm_manager_notes" in object literal[33m
+993|      "profile.perm_manager_team": "Managers can access Team",
+994|      "profile.perm_manager_business": "Managers can manage business settings",
+995|      "profile.perm_manager_notes": "Managers can access Notes & Documents",
+   |      ^
+996|      "profile.perm_manager_inventory": "Managers can access Inventory",
+997|      "profile.profile_updated": "Profile updated",
+[39m
+  Plugin: [35mvite:esbuild[39m
+  File: [36mC:/Users/kozlo/Documents/antigravity/brave-bose/workdish — kopia/apps/web/src/lib/i18n.tsx[39m
+[2m10:45:41[22m [31m[1m[vite][22m[39m Pre-transform error: Failed to load url /src/pages/notes-documents-page.tsx (resolved id: C:/Users/kozlo/Documents/antigravity/brave-bose/workdish — kopia/apps/web/src/pages/notes-documents-page.tsx) in C:/Users/kozlo/Documents/antigravity/brave-bose/workdish — kopia/apps/web/src/App.tsx. Does the file exist?
+npm error Lifecycle script `dev` failed with error:
+npm error code 4294967295
+npm error path C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\apps\web
+npm error workspace @gastrowo/web@0.1.0
+npm error location C:\Users\kozlo\Documents\antigravity\brave-bose\workdish — kopia\apps\web
+npm error command failed
+npm error command C:\Windows\system32\cmd.exe /d /s /c vite --host 0.0.0.0

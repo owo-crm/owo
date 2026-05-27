@@ -1,0 +1,259 @@
+
+> @gastrowo/web@0.1.0 dev
+> vite --host 0.0.0.0
+
+
+  [32m[1mVITE[22m v5.4.21[39m  [2mready in [0m[1m957[22m[2m[0m ms[22m
+
+  [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m5173[22m/[39m
+  [32m➜[39m  [1mNetwork[22m: [36mhttp://192.168.56.1:[1m5173[22m/[39m
+  [32m➜[39m  [1mNetwork[22m: [36mhttp://192.168.100.27:[1m5173[22m/[39m
+[2m21:41:01[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/login-page.tsx, /src/styles.css[22m
+[2m21:41:01[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ui/dashboard-with-collapsible-sidebar.tsx, /src/styles.css[22m
+[2m21:41:01[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mindex.html[22m
+[2m21:46:57[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/login-page.tsx, /src/styles.css[22m
+[2m21:46:57[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ui/dashboard-with-collapsible-sidebar.tsx, /src/styles.css[22m
+[2m21:48:24[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/brand-logo.tsx, /src/styles.css[22m
+[2m21:51:46[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/login-page.tsx, /src/styles.css[22m
+[2m21:52:11[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/login-page.tsx, /src/styles.css[22m
+[2m21:52:17[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/login-page.tsx, /src/styles.css[22m
+[2m21:52:21[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/login-page.tsx, /src/styles.css[22m
+[2m21:52:28[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/login-page.tsx, /src/styles.css[22m
+[2m21:52:38[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/login-page.tsx, /src/styles.css[22m
+[2m21:53:19[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/login-page.tsx, /src/styles.css[22m
+[2m21:53:24[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/login-page.tsx, /src/styles.css[22m
+[2m21:53:34[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/login-page.tsx, /src/styles.css[22m
+[2m21:53:50[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/login-page.tsx, /src/styles.css[22m
+[2m21:53:53[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/login-page.tsx, /src/styles.css[22m
+[2m21:54:00[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/login-page.tsx, /src/styles.css[22m
+[2m21:58:07[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/brand-logo.tsx, /src/styles.css[22m
+[2m21:58:09[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/brand-logo.tsx, /src/styles.css[22m
+[2m21:58:12[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/brand-logo.tsx, /src/styles.css[22m
+[2m21:58:17[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/brand-logo.tsx, /src/styles.css[22m
+[2m21:58:19[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/brand-logo.tsx, /src/styles.css[22m
+[2m21:58:26[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/brand-logo.tsx, /src/styles.css[22m
+[2m21:58:46[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/brand-logo.tsx, /src/styles.css[22m
+[2m22:00:14[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ui/dashboard-with-collapsible-sidebar.tsx, /src/styles.css[22m
+[2m22:00:19[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ui/dashboard-with-collapsible-sidebar.tsx, /src/styles.css[22m
+[2m22:00:23[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ui/dashboard-with-collapsible-sidebar.tsx, /src/styles.css[22m
+[2m22:03:48[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ui/dashboard-with-collapsible-sidebar.tsx, /src/styles.css[22m
+[2m22:06:12[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/login-page.tsx, /src/styles.css[22m
+[2m22:14:06[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/brand-logo.tsx, /src/styles.css[22m
+[2m22:14:06[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ui/dashboard-with-collapsible-sidebar.tsx, /src/styles.css[22m
+[2m22:14:47[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ui/dashboard-with-collapsible-sidebar.tsx, /src/styles.css[22m
+[2m22:16:24[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ui/dashboard-with-collapsible-sidebar.tsx, /src/styles.css[22m
+[2m22:16:39[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ui/dashboard-with-collapsible-sidebar.tsx, /src/styles.css[22m
+[2m22:16:53[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ui/dashboard-with-collapsible-sidebar.tsx, /src/styles.css[22m
+[2m22:16:58[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ui/dashboard-with-collapsible-sidebar.tsx, /src/styles.css[22m
+[2m22:17:13[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ui/dashboard-with-collapsible-sidebar.tsx, /src/styles.css[22m
+[2m22:17:16[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ui/dashboard-with-collapsible-sidebar.tsx, /src/styles.css[22m
+[2m22:17:22[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ui/dashboard-with-collapsible-sidebar.tsx, /src/styles.css[22m
+[2m22:18:46[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ui/dashboard-with-collapsible-sidebar.tsx, /src/styles.css[22m
+[2m22:19:15[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ui/dashboard-with-collapsible-sidebar.tsx, /src/styles.css[22m
+[2m22:32:38[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m22:33:02[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m22:33:37[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/pages/home-page.tsx[22m
+[2m22:37:51[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/notes-documents-page.tsx, /src/styles.css[22m
+[2m22:39:02[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/notes-documents-page.tsx[22m
+[2m22:39:42[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/lib/i18n.tsx, /src/styles.css[22m
+[2m22:39:43[22m [36m[1m[vite][22m[39m [33mhmr invalidate [39m[2m/src/lib/i18n.tsx[22m Could not Fast Refresh ("useLanguage" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+[2m22:39:43[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/lib/i18n.tsx[22m
+[2m22:39:56[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/lib/i18n.tsx, /src/styles.css[22m
+[2m22:39:56[22m [36m[1m[vite][22m[39m [33mhmr invalidate [39m[2m/src/lib/i18n.tsx[22m Could not Fast Refresh ("useLanguage" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+[2m22:39:56[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/lib/i18n.tsx[22m
+[2m22:40:02[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/lib/i18n.tsx, /src/styles.css[22m
+[2m22:40:02[22m [36m[1m[vite][22m[39m [33mhmr invalidate [39m[2m/src/lib/i18n.tsx[22m Could not Fast Refresh ("useLanguage" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+[2m22:40:02[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/lib/i18n.tsx[22m
+[2m22:40:07[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/team-page.tsx, /src/styles.css[22m
+[2m22:43:56[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/lib/i18n.tsx, /src/styles.css[22m
+[2m22:43:56[22m [36m[1m[vite][22m[39m [33mhmr invalidate [39m[2m/src/lib/i18n.tsx[22m Could not Fast Refresh ("useLanguage" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+[2m22:43:56[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/lib/i18n.tsx[22m
+[2m22:44:45[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/lib/i18n.tsx, /src/styles.css[22m
+[2m22:44:45[22m [36m[1m[vite][22m[39m [33mhmr invalidate [39m[2m/src/lib/i18n.tsx[22m Could not Fast Refresh ("useLanguage" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+[2m22:44:45[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/lib/i18n.tsx[22m
+[2m22:44:51[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/lib/i18n.tsx, /src/styles.css[22m
+[2m22:44:51[22m [36m[1m[vite][22m[39m [33mhmr invalidate [39m[2m/src/lib/i18n.tsx[22m Could not Fast Refresh ("useLanguage" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+[2m22:44:51[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/lib/i18n.tsx[22m
+[2m22:45:00[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/lib/i18n.tsx, /src/styles.css[22m
+[2m22:45:00[22m [36m[1m[vite][22m[39m [33mhmr invalidate [39m[2m/src/lib/i18n.tsx[22m Could not Fast Refresh ("useLanguage" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+[2m22:45:00[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/lib/i18n.tsx[22m
+[2m22:45:12[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/lib/i18n.tsx, /src/styles.css[22m
+[2m22:45:12[22m [36m[1m[vite][22m[39m [33mhmr invalidate [39m[2m/src/lib/i18n.tsx[22m Could not Fast Refresh ("useLanguage" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+[2m22:45:12[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/lib/i18n.tsx[22m
+[2m22:45:16[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/lib/i18n.tsx, /src/styles.css[22m
+[2m22:45:16[22m [36m[1m[vite][22m[39m [33mhmr invalidate [39m[2m/src/lib/i18n.tsx[22m Could not Fast Refresh ("useLanguage" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+[2m22:45:16[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/lib/i18n.tsx[22m
+[2m22:45:51[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/lib/i18n.tsx, /src/styles.css[22m
+[2m22:45:51[22m [36m[1m[vite][22m[39m [33mhmr invalidate [39m[2m/src/lib/i18n.tsx[22m Could not Fast Refresh ("useLanguage" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+[2m22:45:51[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/lib/i18n.tsx[22m
+[2m22:45:57[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/lib/i18n.tsx, /src/styles.css[22m
+[2m22:45:57[22m [36m[1m[vite][22m[39m [33mhmr invalidate [39m[2m/src/lib/i18n.tsx[22m Could not Fast Refresh ("useLanguage" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+[2m22:45:57[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/lib/i18n.tsx[22m
+[2m22:46:06[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/lib/i18n.tsx, /src/styles.css[22m
+[2m22:46:06[22m [36m[1m[vite][22m[39m [33mhmr invalidate [39m[2m/src/lib/i18n.tsx[22m Could not Fast Refresh ("useLanguage" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+[2m22:46:06[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/lib/i18n.tsx[22m
+[2m22:46:11[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/lib/i18n.tsx, /src/styles.css[22m
+[2m22:46:11[22m [36m[1m[vite][22m[39m [33mhmr invalidate [39m[2m/src/lib/i18n.tsx[22m Could not Fast Refresh ("useLanguage" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+[2m22:46:11[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/lib/i18n.tsx[22m
+[2m22:46:49[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/lib/i18n.tsx, /src/styles.css[22m
+[2m22:46:50[22m [36m[1m[vite][22m[39m [33mhmr invalidate [39m[2m/src/lib/i18n.tsx[22m Could not Fast Refresh ("useLanguage" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+[2m22:46:50[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/lib/i18n.tsx[22m
+[2m22:46:52[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/lib/i18n.tsx, /src/styles.css[22m
+[2m22:46:53[22m [36m[1m[vite][22m[39m [33mhmr invalidate [39m[2m/src/lib/i18n.tsx[22m Could not Fast Refresh ("useLanguage" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+[2m22:46:53[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/lib/i18n.tsx[22m
+[2m22:47:19[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/lib/i18n.tsx, /src/styles.css[22m
+[2m22:47:19[22m [36m[1m[vite][22m[39m [33mhmr invalidate [39m[2m/src/lib/i18n.tsx[22m Could not Fast Refresh ("useLanguage" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+[2m22:47:19[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/lib/i18n.tsx[22m
+[2m22:52:43[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/notes-documents-page.tsx, /src/styles.css[22m
+[2m22:55:38[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/notes-documents-page.tsx[22m
+[2m22:58:33[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/notes-documents-page.tsx[22m
+[2m23:01:05[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/notes-documents-page.tsx[22m
+[2m10:43:28[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/brand-logo.tsx, /src/styles.css[22m
+[2m10:43:31[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/brand-logo.tsx, /src/styles.css[22m
+[2m10:43:32[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/brand-logo.tsx, /src/styles.css[22m
+[2m10:43:49[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/brand-logo.tsx, /src/styles.css[22m
+[2m10:43:54[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/brand-logo.tsx, /src/styles.css[22m
+[2m10:44:06[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/brand-logo.tsx, /src/styles.css[22m
+[2m10:44:54[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ui/dashboard-with-collapsible-sidebar.tsx, /src/styles.css[22m
+[2m10:45:11[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ui/dashboard-with-collapsible-sidebar.tsx, /src/styles.css[22m
+[2m10:45:20[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/login-page.tsx, /src/styles.css[22m
+[2m10:45:22[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ui/dashboard-with-collapsible-sidebar.tsx, /src/styles.css[22m
+[2m10:45:27[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ui/dashboard-with-collapsible-sidebar.tsx, /src/styles.css[22m
+[2m10:45:27[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/notes-documents-page.tsx, /src/styles.css[22m
+[2m10:45:39[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ui/dashboard-with-collapsible-sidebar.tsx, /src/styles.css[22m
+[2m10:48:56[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/notes-documents-page.tsx[22m
+[2m11:06:10[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/notes-documents-page.tsx[22m
+[2m11:09:33[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/notes-documents-page.tsx[22m
+[2m11:40:15[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/notes-documents-page.tsx[22m
+[2m11:41:58[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/notes-documents-page.tsx[22m
+[2m11:44:13[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/notes-documents-page.tsx[22m
+[2m11:47:19[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/notes-documents-page.tsx[22m
+[2m11:49:34[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/layout/app-shell.tsx, /src/styles.css[22m
+[2m11:49:47[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ui/dashboard-with-collapsible-sidebar.tsx, /src/styles.css[22m
+[2m11:50:15[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/notes-documents-page.tsx, /src/styles.css[22m
+[2m11:55:36[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/notes-documents-page.tsx, /src/styles.css[22m
+[2m11:56:18[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/notes-documents-page.tsx, /src/styles.css[22m
+[2m11:56:45[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/tasks-page.tsx, /src/styles.css[22m
+[2m12:00:26[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ui/dashboard-with-collapsible-sidebar.tsx, /src/styles.css[22m
+[2m12:00:59[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/tasks-page.tsx, /src/styles.css[22m
+[2m12:16:10[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m12:16:20[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m12:16:30[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m12:18:09[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m12:18:54[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m12:19:06[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/lib/i18n.tsx, /src/styles.css[22m
+[2m12:19:07[22m [36m[1m[vite][22m[39m [33mhmr invalidate [39m[2m/src/lib/i18n.tsx[22m Could not Fast Refresh ("useLanguage" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+[2m12:19:07[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/lib/i18n.tsx[22m
+[2m12:39:19[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m12:39:47[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m12:44:46[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m12:45:07[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m13:15:31[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m13:15:54[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m13:16:07[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m13:17:15[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m13:25:16[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m13:25:34[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m13:26:13[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/lib/i18n.tsx, /src/styles.css[22m
+[2m13:26:14[22m [36m[1m[vite][22m[39m [33mhmr invalidate [39m[2m/src/lib/i18n.tsx[22m Could not Fast Refresh ("useLanguage" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+[2m13:26:14[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/lib/i18n.tsx[22m
+[2m13:26:18[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/lib/i18n.tsx, /src/styles.css[22m
+[2m13:26:19[22m [36m[1m[vite][22m[39m [33mhmr invalidate [39m[2m/src/lib/i18n.tsx[22m Could not Fast Refresh ("useLanguage" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+[2m13:26:19[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/lib/i18n.tsx[22m
+[2m13:26:37[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/lib/i18n.tsx, /src/styles.css[22m
+[2m13:26:37[22m [36m[1m[vite][22m[39m [33mhmr invalidate [39m[2m/src/lib/i18n.tsx[22m Could not Fast Refresh ("useLanguage" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+[2m13:26:37[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/lib/i18n.tsx[22m
+[2m13:33:36[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m13:54:30[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m13:56:35[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m13:57:20[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m13:57:51[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m13:58:56[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m13:59:55[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m14:00:57[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/lib/i18n.tsx, /src/styles.css[22m
+[2m14:00:57[22m [36m[1m[vite][22m[39m [33mhmr invalidate [39m[2m/src/lib/i18n.tsx[22m Could not Fast Refresh ("useLanguage" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+[2m14:00:57[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/lib/i18n.tsx[22m
+[2m14:01:11[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/lib/i18n.tsx, /src/styles.css[22m
+[2m14:01:11[22m [36m[1m[vite][22m[39m [33mhmr invalidate [39m[2m/src/lib/i18n.tsx[22m Could not Fast Refresh ("useLanguage" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+[2m14:01:11[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/lib/i18n.tsx[22m
+[2m14:01:31[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/lib/i18n.tsx, /src/styles.css[22m
+[2m14:01:32[22m [36m[1m[vite][22m[39m [33mhmr invalidate [39m[2m/src/lib/i18n.tsx[22m Could not Fast Refresh ("useLanguage" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+[2m14:01:32[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/lib/i18n.tsx[22m
+[2m14:01:48[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m14:02:02[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m14:02:14[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m14:18:15[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m14:18:21[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m14:18:29[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m14:18:40[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m14:18:59[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m14:19:06[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m14:20:55[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m18:30:47[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m18:31:37[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m18:31:38[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m18:32:05[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m18:32:35[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m18:33:00[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/lib/i18n.tsx, /src/styles.css[22m
+[2m18:33:00[22m [36m[1m[vite][22m[39m [33mhmr invalidate [39m[2m/src/lib/i18n.tsx[22m Could not Fast Refresh ("useLanguage" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+[2m18:33:00[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/lib/i18n.tsx[22m
+[2m18:33:20[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/lib/i18n.tsx, /src/styles.css[22m
+[2m18:33:21[22m [36m[1m[vite][22m[39m [33mhmr invalidate [39m[2m/src/lib/i18n.tsx[22m Could not Fast Refresh ("useLanguage" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+[2m18:33:21[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/lib/i18n.tsx[22m
+[2m18:33:34[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m18:33:50[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m18:34:48[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m18:37:17[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m18:40:11[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m18:42:20[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m18:48:19[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m18:48:33[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m18:54:24[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m18:54:48[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m18:55:35[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m18:55:44[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m18:55:57[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m19:00:17[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m19:00:29[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m19:07:04[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m19:10:16[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m19:10:24[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m19:11:17[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m19:13:45[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m19:17:10[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m19:19:16[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m19:24:46[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m19:31:16[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m19:31:26[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m19:34:40[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m19:42:15[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m19:42:25[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m19:48:13[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m19:48:21[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m20:08:08[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/lib/i18n.tsx, /src/styles.css[22m
+[2m20:08:09[22m [36m[1m[vite][22m[39m [33mhmr invalidate [39m[2m/src/lib/i18n.tsx[22m Could not Fast Refresh (new export)
+[2m20:08:09[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/lib/i18n.tsx[22m
+[2m20:08:44[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/lib/i18n.tsx, /src/styles.css[22m
+[2m20:08:44[22m [36m[1m[vite][22m[39m [33mhmr invalidate [39m[2m/src/lib/i18n.tsx[22m Could not Fast Refresh ("translateKey" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+[2m20:08:44[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/lib/i18n.tsx[22m
+[2m20:12:25[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[2m20:12:33[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/login-page.tsx, /src/styles.css[22m
+[2m20:12:45[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/login-page.tsx, /src/styles.css[22m
+[2m20:13:57[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/login-page.tsx, /src/styles.css[22m
+[2m20:14:24[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/login-page.tsx, /src/styles.css[22m
+[2m20:14:32[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/landing-page.tsx, /src/styles.css[22m
+[2m20:28:10[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/landing-page.tsx, /src/styles.css[22m
+[2m20:35:12[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/landing-page.tsx[22m
+[2m20:40:02[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/landing-page.tsx[22m
+[2m20:46:05[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/landing-page.tsx[22m
+[2m20:46:17[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/landing-page.tsx[22m
+[2m20:47:00[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/landing-page.tsx[22m
+[2m20:47:18[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/landing-page.tsx[22m
+[2m20:47:35[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/landing-page.tsx[22m
+[2m20:47:51[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/landing-page.tsx[22m
+[2m20:48:27[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/landing-page.tsx[22m
+[2m20:48:31[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/schedule-page.tsx, /src/styles.css[22m
+[2m20:56:46[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/landing-page.tsx, /src/styles.css[22m
+[2m21:06:46[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/landing-page.tsx, /src/styles.css[22m
+[2m21:07:14[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/landing-page.tsx, /src/styles.css[22m
+[2m21:07:37[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/landing-page.tsx, /src/styles.css[22m
