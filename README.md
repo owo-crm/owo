@@ -1,68 +1,48 @@
-# Barowo CRM
+# Ритм
 
-Initial project scaffold based on `barowo_crm_documentation.md`.
+Личный календарь на русском: смены, сон, чтение, ежедневные чекбоксы, награды и деньги. Интерфейс для телефона в стиле iOS. Вход и регистрация не нужны: одна персональная ссылка открывает одни и те же записи на всех устройствах.
 
-## Credentials
+В разделе «Чтение» можно вести библиотеку, отмечать страницы и минуты, запускать таймер, ставить дневную цель и привязывать чтение к расписанию. К книге можно прикрепить PDF до 10 МБ: он открывается внутри приложения с закладкой, поиском страницы, масштабом и извлечением текста. В локальном режиме PDF хранится в браузере; при настроенном Worker файл дополнительно сохраняется в D1 и доступен по персональной ссылке.
 
-Fill local secrets in `.env` using `.env.example` as the template.
+## Статус переноса
 
-## Backend
+Самостоятельная версия подготовлена для Cloudflare Workers. Для запуска нужно создать D1, применить `schema.sql`, установить секрет `CALENDAR_KEY` и опубликовать Worker. Сам репозиторий не является работающим сервером. Существующие записи из старого сайта пока не перенесены.
 
-```powershell
-cd backend
-python -m venv .venv
-.venv\Scripts\Activate.ps1
-pip install -r requirements.txt
-uvicorn app.main:app --reload
-```
+## Как сохраняются данные
 
-## Migrations
+Весь календарь сохраняется одним JSON-документом `state_json` в Cloudflare D1. Отдельно хранятся номер версии и предыдущая JSON-копия. Изменения с телефона и компьютера объединяются; одновременно изменённая одна запись не перезаписывается молча. Сохранение подтверждается только после ответа сервера. При потере связи черновик остаётся на устройстве, доступен повтор и экспорт. Обновление открытой страницы — каждые 2 секунды. JSON можно скачать и восстановить через «Я → Данные и резервная копия».
 
-```powershell
-cd backend
-.venv\Scripts\python -m alembic upgrade head
-```
+Подключение внешнего календаря не используется и не требуется. Если Worker или D1 ещё не настроены, страница всё равно открывается и сохраняет записи локально; общее JSON-хранилище включается автоматически только на настроенной персональной ссылке.
 
-Healthcheck:
+GitHub хранит исходники приложения. Текущие личные записи и ключ ссылки не коммитятся. Доступ к календарю получает любой, кому передана полная персональная ссылка. Она не отправляется сторонним ресурсам: внешних шрифтов, аналитики и скриптов нет; установлен `Referrer-Policy: no-referrer`.
 
-```text
-GET http://localhost:8000/health
-```
+## Развёртывание
 
-Readiness report:
+Требуются Node.js 22.13+ и аккаунт Cloudflare.
 
-```text
-GET http://localhost:8000/health/ready
-```
+1. `npm ci`
+2. `npx wrangler login`
+3. `npx wrangler d1 create ritm-calendar`
+4. Указать полученный `database_id` в `wrangler.jsonc` вместо нулевого значения.
+5. `npm run db:remote` — создаёт таблицу, сохраняя существующие записи.
+6. `node -e "console.log(require('node:crypto').randomBytes(32).toString('base64url'))"` — создать случайный ключ из 43 символов. Хранить его приватно.
+7. `npx wrangler secret put CALENDAR_KEY` — ввести ключ в защищённой настройке Cloudflare.
+8. `npm test && npm run build && npm run deploy`
 
-## Local auth testing
+Персональная ссылка: `https://<адрес-worker>/c/<CALENDAR_KEY>/`. Открывать её целиком, включая завершающий `/`. На телефоне можно добавить её на главный экран. Для подключения нового устройства достаточно открыть эту же ссылку.
 
-For local development, `POST /api/v1/auth/validate` accepts `initData` in the form `debug:123456`.
-This creates or updates a local user with Telegram ID `123456` without requiring a real Telegram Mini App signature.
+Если ссылка стала известна посторонним, заменить `CALENDAR_KEY`: старая перестанет работать, JSON останется. Новый секрет должен быть случайным, а не коротким придуманным словом. Включение подробных HTTP-логов может сохранить секретную часть пути, поэтому observability по умолчанию выключен.
 
-## Platform admin
+Для автоматических обновлений подключить этот приватный GitHub-репозиторий к Workers Builds: ветка `main`, deploy command `npm run deploy`. D1 и секрет настраиваются в том же Cloudflare-аккаунте. Секрет не добавляется в код или переменные сборки.
 
-To mark a Telegram user as a global platform admin, add their Telegram numeric ID to
-`PLATFORM_ADMIN_TELEGRAM_IDS` in `.env`, for example:
+## Перенос прежних записей
 
-```text
-PLATFORM_ADMIN_TELEGRAM_IDS=123456789,987654321
-```
+На прежнем сайте: «Я → Данные и резервная копия → Сохранить резервную копию». На новой персональной ссылке: «Восстановить копию». Проверь показанные числа событий и денежных операций перед заменой. Восстановление синхронизируется со всеми устройствами. Прежняя версия сохраняется отдельно и не изменяется при развёртывании нового сайта.
 
-The backend uses Telegram `telegram_id` from bot or Mini App auth to decide whether to expose the admin panel.
+## Разработка и проверки
 
-## Production readiness
+`npm test` проверяет синхронизацию независимых клиентов, конфликты, повтор после потери ответа, сохранение денег и сна, границы суток и переходы времени в Варшаве, доступ по ссылке и отсутствие обхода защиты через заголовки.
 
-There is now a production checklist and readiness flow in:
+`index.html` — самодостаточное приложение. `core.js` содержит общие правила валидации. `sync-api.js` сохраняет JSON с атомарной проверкой версии. `worker.js` обслуживает персональную ссылку. `entry.js` связывает Worker с HTML. Для локальной разработки установить такой же случайный `CALENDAR_KEY` в игнорируемом `.dev.vars`, выполнить `npm run db:local`, затем `npm run dev`.
 
-- [`PRODUCTION_READINESS.md`](./PRODUCTION_READINESS.md)
-- [`STAGING_REVIEW_CHECKLIST.md`](./STAGING_REVIEW_CHECKLIST.md)
-- [`REVIEW_HANDOFF.md`](./REVIEW_HANDOFF.md)
-- [`RAILWAY_STAGING_DEPLOY.md`](./RAILWAY_STAGING_DEPLOY.md)
-
-Quick local readiness script:
-
-```powershell
-cd backend
-.\.venv\Scripts\python scripts\production_readiness_check.py
-```
+Основа перенесена из версии `82e05c91fe27f0e000da6a3030160e88f16c2801`; исходный размещённый календарь сохранён. Расписание сентября, ставки и первоначальные задачи сохранены из этой версии; новые неподтверждённые смены не добавлялись.
