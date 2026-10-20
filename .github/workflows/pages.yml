@@ -27,7 +27,8 @@ jobs:
       - run: |
           node build-assets.mjs
           mkdir _site
-          cp index.html _site/
+          cp index.html manifest.webmanifest sw.js _site/
+          cp -r icons _site/icons
           cp -r assets/pdfjs _site/pdfjs
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
