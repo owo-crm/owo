@@ -43,7 +43,7 @@ test('Missing configuration never starts a public writable calendar',async()=>{
  assert.equal((await handleRequest(request(),{},html)).status,404);
  const local=await handleRequest(request(),{CALENDAR_KEY:testKey},html);
  assert.equal(local.status,200);
- assert.match(await local.text(),/serverAvailable='local'==='ready'/);
+ assert.match(await local.text(),/workerSync='local'==='ready'/);
  assert.equal((await handleRequest(request('api/state'),{CALENDAR_KEY:testKey,DB:{prepare(){throw Error('offline')}}},html)).status,503);
 });
 test('Two independent clients use relative APIs on the personal link and merge their changes',async()=>{
