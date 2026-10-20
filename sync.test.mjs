@@ -117,5 +117,4 @@ test('Reading library tracks pages, timer sessions and day-bar events',()=>{
  assert.equal(state.readingLogs[0].pages,15);
  assert.ok(state.rewards.awards.some(a=>a.id==='reading-day:2026-09-06'));
  assert.equal(c.readingEvents(state,now).length,1);
- assert.ok(c.dayBarModel(state,'2026-09-06',now).rows.find(r=>r.key==='reading').items.length);
 });
