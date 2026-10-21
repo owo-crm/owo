@@ -1,5 +1,5 @@
 // Offline shell: network first, cached copy when there is no connection.
-const CACHE = 'ritm-shell-v1';
+const CACHE = 'ritm-shell-v2';
 const SHELL = ['./', 'index.html', 'manifest.webmanifest', 'icons/icon-192.png', 'icons/icon-512.png', 'icons/apple-touch-icon.png'];
 
 self.addEventListener('install', event => {
@@ -23,4 +23,12 @@ self.addEventListener('fetch', event => {
     return response;
   }).catch(() => caches.match(event.request, {ignoreSearch: true})
     .then(hit => hit || (event.request.mode === 'navigate' ? caches.match('index.html') : Response.error()))));
+});
+
+self.addEventListener('notificationclick', event => {
+  event.notification.close();
+  event.waitUntil(self.clients.matchAll({type: 'window', includeUncontrolled: true}).then(list => {
+    const open = list.find(client => 'focus' in client);
+    return open ? open.focus() : self.clients.openWindow('./#today');
+  }));
 });

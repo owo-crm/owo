@@ -27,7 +27,7 @@ test('Server and browser validate the same canonical source; script lint and loc
  new vm.Script(source);
  const globals=Object.fromEntries(['document','window','localStorage','structuredClone','setInterval','setTimeout','clearTimeout','FormData','URL','Blob','AbortController','crypto','TextDecoder'].map(k=>[k,'readonly']));
  const lint=new Linter().verify(source,[{languageOptions:{ecmaVersion:'latest',sourceType:'script',globals},rules:{'no-undef':'error','no-dupe-keys':'error','no-unreachable':'error'}}]);assert.deepEqual(lint,[]);
- assert.match(html,/connect-src 'self'/);assert.match(source,/syncEnabled=serverAvailable/ );assert.match(source,/if\(syncEnabled\)setInterval/);
+ assert.match(html,/connect-src 'self'/);assert.match(source,/syncEnabled=serverAvailable/ );assert.doesNotMatch(source,/if\(syncEnabled\)setInterval/);
 });
 test('API authentication, account isolation, CSRF, body limits, schema validation, no-cache',async()=>{
  const env=database();let response=await syncApi(request('GET',null,''),env);assert.equal(response.status,401);
